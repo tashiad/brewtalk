@@ -1,18 +1,12 @@
-nav {
-  margin: 3%;
-}
-
 ul {
   display: flex;
   justify-content: space-between;
   float: right;
-  width: 25%;
+  width: 15%;
 }
 
 li {
   list-style-type: none;
-  margin: 0px;
-  padding: 0px;
 }
 
 li:hover {
