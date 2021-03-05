@@ -1,0 +1,16 @@
+ul {
+  display: flex;
+  justify-content: space-around;
+  float: right;
+  /* width: 15%; */
+}
+
+li {
+  list-style-type: none;
+  padding: 0 10%;
+}
+
+li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

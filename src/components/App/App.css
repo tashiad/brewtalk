@@ -1,0 +1,89 @@
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 3% 0;
+}
+
+/* MAIN BUTTON STYLES */
+button {
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.button-primary {
+  border: 1px solid orange;
+  background: orange;
+  color: white;
+}
+
+.button-primary:hover {
+  background: white;
+  color: orange;
+}
+
+.button-secondary {
+  border: 1px solid black;
+  background: white;
+}
+
+.button-secondary:hover {
+  border: 1px solid orange;
+  color: orange;
+}
+
+/* SECTION STYLES */
+section {
+  width: 30%;
+  padding: 1%;
+}
+
+.section-top {
+  height: 175px;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 5% 0;
+}
+
+label {
+  display: block;
+}
+
+.step {
+  font-size: 1.2rem;
+  margin: 5% 0;
+}
+
+.button-top {
+  height: 40px;
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* CARD STYLES */
+article {
+  border: 2px solid #D2D8D9;
+  border-radius: 3px;
+  margin: 5% 0;
+}
+
+.cardContents {
+  padding: 0 5%;
+}
+
+.cardButton {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.select {
+  height: 40px;
+  width: 75px;
+  float: right;
+}

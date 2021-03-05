@@ -1,0 +1,35 @@
+.searchBar {
+  display: grid;
+  grid-template-columns: 1.5rem 4fr 1fr;
+  margin-bottom: 10%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.searchBar:focus-within img {
+  display: none;
+}
+
+.searchBar:focus-within .searchBox {
+  grid-column: 1/4;
+}
+
+.searchBar:focus-within .searchBox::placeholder {
+  color: transparent;
+}
+
+.searchIcon {
+  padding: 0.5rem;
+  grid-row: 1;
+  grid-column: 1/2;
+  z-index: 2
+}
+
+.searchBox {
+  border: 0;
+  padding: 0.5rem;
+  grid-column: 2/4;
+  grid-row: 1;
+  outline: none;
+}

@@ -1,0 +1,21 @@
+h4 {
+  margin: 0;
+}
+
+.jokeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5%;
+}
+
+.jokeButtons {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+}
+
+.save {
+  padding: 0 5%;
+  margin-right: 5%;
+}
