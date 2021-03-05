@@ -1,5 +1,6 @@
 import React from 'react'
 import './Breweries.css'
+import Search from '../Search/Search'
 import BreweryCard from '../BreweryCard/BreweryCard'
 
 const Breweries = ({ breweryData }) => {
@@ -23,6 +24,7 @@ const Breweries = ({ breweryData }) => {
   return (
     <section>
       <h2>Breweries Container!</h2>
+      <Search />
       {brewCards}
     </section>
   )
