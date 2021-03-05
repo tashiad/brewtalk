@@ -19,14 +19,17 @@ class Search extends Component {
     return (
       <>
       <form>
-      <label htmlFor="search">Select a brewery:</label>
-        <input
-          type='text'
-          placeholder='Search'
-          name='search'
-          value={this.state.search}
-          onChange={this.handleChange}
-        />
+        <label className="step" htmlFor="search">Select a brewery:</label>
+        <div className="search-bar">
+          <img src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"/>
+          <input
+            type='text'
+            placeholder='Search'
+            name='search'
+            value={this.state.search}
+            onChange={this.handleChange}
+          />
+        </div>
       </form>
       </>
     )

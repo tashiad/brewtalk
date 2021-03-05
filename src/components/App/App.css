@@ -8,3 +8,18 @@ section {
   width: 30%;
   padding: 1% 3%;
 }
+
+.number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 5% 0;
+}
+
+label {
+  display: block;
+}
+
+.step {
+  font-size: 1.2rem;
+  margin: 5% 0;
+}

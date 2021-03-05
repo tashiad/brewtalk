@@ -23,7 +23,7 @@ const Breweries = ({ breweryData }) => {
 
   return (
     <section>
-      <h2>Breweries Container!</h2>
+      <p className="number">1</p>
       <Search />
       {brewCards}
     </section>

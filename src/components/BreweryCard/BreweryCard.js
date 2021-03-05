@@ -15,6 +15,7 @@ const BreweryCard = ({
 
   return (
     <article className="breweryCard" id={id}>
+      <button className="select">Select</button>
       <h3>{name}</h3>
       <p>{brewery_type}</p>
       <p>{street}</p>
