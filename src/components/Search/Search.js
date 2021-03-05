@@ -23,7 +23,7 @@ class Search extends Component {
         <div className="searchBar">
           <img className="searchIcon" src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png" alt="Search icon"/>
           <input
-            class="searchBox"
+            className="searchBox"
             type='search'
             placeholder='Search'
             name='search'

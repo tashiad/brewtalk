@@ -23,8 +23,10 @@ const Breweries = ({ breweryData }) => {
 
   return (
     <section>
-      <p className="number">1</p>
-      <Search />
+      <div className="section-top">
+        <p className="number">1</p>
+        <Search />
+      </div>
       {brewCards}
     </section>
   )

@@ -1,11 +1,14 @@
 h3 {
-  color: #A65D05;
-  margin-top: 0;
   word-wrap: break-word;
 }
 
-article {
-  border: 2px solid #D2D8D9;
+.typeTag {
+  font-size: .8em;
+  padding: 2%;
+  border: 1px solid black;
   border-radius: 3px;
-  padding: 10%;
+}
+
+.brewButton {
+  margin: 5%;
 }
