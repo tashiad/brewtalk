@@ -1,0 +1,21 @@
+nav {
+  margin: 3%;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  width: 25%;
+}
+
+li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
