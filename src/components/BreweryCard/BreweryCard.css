@@ -12,3 +12,9 @@ h3 {
 .brewButton {
   margin: 5%;
 }
+
+.timestamp {
+  color: #2c3e50;
+  font-size: .8em;
+  font-style: italic;
+}
