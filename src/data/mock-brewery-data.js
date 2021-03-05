@@ -1,0 +1,61 @@
+export default {
+  breweryData: [
+    {
+      "id": 5724,
+      "name": "Bend Brewing Co",
+      "brewery_type": "brewpub",
+      "street": "1019 NW Brooks St",
+      "address_2": null,
+      "address_3": null,
+      "city": "Bend",
+      "state": "Oregon",
+      "county_province": null,
+      "postal_code": "97703-2018",
+      "country": "United States",
+      "longitude": "-121.31393115",
+      "latitude": "44.06051115",
+      "phone": "5413831599",
+      "website_url": "http://www.bendbrewingco.com",
+      "updated_at": "2018-08-24T15:45:56.077Z",
+      "created_at": "2018-07-24T01:34:04.815Z"
+    },
+    {
+      "id": 5776,
+      "name": "Crux Fermentation Project",
+      "brewery_type": "regional",
+      "street": "50 SW Division St",
+      "address_2": null,
+      "address_3": null,
+      "city": "Bend",
+      "state": "Oregon",
+      "county_province": null,
+      "postal_code": "97702-1600",
+      "country": "United States",
+      "longitude": null,
+      "latitude": null,
+      "phone": "5413887558",
+      "website_url": "http://www.cruxfermentation.com",
+      "updated_at": "2018-08-11T21:39:12.620Z",
+      "created_at": "2018-07-24T01:34:05.597Z"
+    },
+    {
+      "id": 5786,
+      "name": "Deschutes Brewery & Public House",
+      "brewery_type": "brewpub",
+      "street": "1044 NW Bond St",
+      "address_2": null,
+      "address_3": null,
+      "city": "Bend",
+      "state": "Oregon",
+      "county_province": null,
+      "postal_code": "97703-2002",
+      "country": "United States",
+      "longitude": "-121.311384469532",
+      "latitude": "44.05941415",
+      "phone": "5413829242",
+      "website_url": "http://www.deschutesbrewery.com",
+      "updated_at": "2018-08-24T16:01:20.256Z",
+      "created_at": "2018-07-24T01:34:05.731Z"
+    }
+  ]
+}
