@@ -20,10 +20,11 @@ class Search extends Component {
       <>
       <form>
         <label className="step" htmlFor="search">Select a brewery:</label>
-        <div className="search-bar">
-          <img src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"/>
+        <div className="searchBar">
+          <img className="searchIcon" src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png" alt="Search icon"/>
           <input
-            type='text'
+            class="searchBox"
+            type='search'
             placeholder='Search'
             name='search'
             value={this.state.search}
