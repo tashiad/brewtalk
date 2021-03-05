@@ -1,0 +1,11 @@
+h3 {
+  color: #A65D05;
+  margin-top: 0;
+  word-wrap: break-word;
+}
+
+article {
+  border: 2px solid #D2D8D9;
+  border-radius: 3px;
+  padding: 10%;
+}

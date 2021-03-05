@@ -4,7 +4,7 @@ import './Directions.css'
 const Directions = () => {
   return (
     <section>
-      <h3>Directions Container!</h3>
+      <h2>Directions Container!</h2>
     </section>
   )
 }
