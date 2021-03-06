@@ -12,7 +12,7 @@ const BreweryCard = ({
   website_url,
   updated_at,
   selectBrewery,
-  selected,
+  selectedBrewery,
   getBreweries,
   searchValue
 }) => {
@@ -34,8 +34,8 @@ const BreweryCard = ({
   })
 
   return (
-    <article className={selected ? 'selectedCard' : null}>
-      { !selected &&
+    <article className={selectedBrewery ? 'selectedCard' : null}>
+      { !selectedBrewery &&
         <button
           className="cardButton select brewButton button-primary"
           onClick={() => selectBrewery(id)}
@@ -43,7 +43,7 @@ const BreweryCard = ({
         Select
         </button>
       }
-      { selected &&
+      { selectedBrewery &&
         <button
           className="cardButton select brewButton button-primary"
           onClick={() => getBreweries(searchValue)}

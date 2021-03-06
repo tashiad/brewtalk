@@ -37,7 +37,7 @@ const Breweries = ({
         website_url={brewery.website_url}
         updated_at={brewery.updated_at}
         selectBrewery={selectBrewery}
-        selected={brewery.selected || false}
+        selectedBrewery={brewery.selected || false}
         getBreweries={getBreweries}
         searchValue={searchValue}
       />
