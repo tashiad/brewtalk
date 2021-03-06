@@ -11,11 +11,20 @@ class App extends Component {
     super()
     this.state = {
       searchedBreweries: [],
-      selectedBrewery: {}
+      searchedWithSelected: [],
+      selectedBrewery: {},
+      searchValue: ''
     }
   }
 
   getBreweries = input => {
+    this.setState({
+      searchedBreweries: [],
+      searchedWithSelected: [],
+      selectedBrewery: {},
+      searchValue: input
+    })
+
     fetch(`https://api.openbrewerydb.org/breweries/search?query=${input}`)
       .then(response => response.json())
       .then(breweries => this.setState({ searchedBreweries: breweries }))
@@ -23,11 +32,20 @@ class App extends Component {
   }
 
   selectBrewery = id => {
-    const foundBrewery = this.state.searchedBreweries.filter(brewery => {
+    let i
+
+    const foundBrewery = this.state.searchedBreweries.find((brewery, index) => {
+      i = index
       return brewery.id === id
     })
 
+    foundBrewery.selected = true
+
+    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery)
+
     this.setState({
+      ...this.state,
+      searchedWithSelected: newArr,
       selectedBrewery: foundBrewery
     })
   }
@@ -43,6 +61,8 @@ class App extends Component {
             getBreweries={this.getBreweries}
             searchedBreweries={this.state.searchedBreweries}
             selectBrewery={this.selectBrewery}
+            searchedWithSelected={this.state.searchedWithSelected}
+            searchValue={this.state.searchValue}
           />
           <Jokes />
           <Directions />
