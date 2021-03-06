@@ -3,7 +3,7 @@ import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
 const Jokes = ({ getJoke, dadJoke }) => {
-  const joke = console.log(dadJoke);
+  const joke = <JokeCard id={dadJoke.id} joke={dadJoke.joke} />
 
   return (
     <section>
@@ -18,7 +18,7 @@ const Jokes = ({ getJoke, dadJoke }) => {
         Generate a random dad joke
         </button>
       </div>
-      <JokeCard />
+      {joke}
     </section>
   )
 }

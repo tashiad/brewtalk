@@ -1,7 +1,7 @@
 import React from 'react'
 import './JokeCard.css'
 
-const JokeCard = () => {
+const JokeCard = ({ id, joke }) => {
 
   return (
     <article className="jokeCard">
@@ -12,7 +12,7 @@ const JokeCard = () => {
           <button className="cardButton select button-primary">Select</button>
         </div>
       </div>
-      <p className="cardContents">My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.</p>
+      <p className="cardContents">{joke}</p>
     </article>
   )
 }
