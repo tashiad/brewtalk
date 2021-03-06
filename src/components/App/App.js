@@ -86,12 +86,17 @@ class App extends Component {
     })
   }
 
-  addToFavorites = () => {
-    // create conditional so they can't add the same one to favs again
-    this.setState({
-      ...this.state,
-      favorites: [...this.state.favorites, this.state.dadJoke]
-    })
+  addToFavorites = (id) => {
+    const foundFav = this.state.favorites.find(fav => fav.id === id)
+
+    if (!foundFav) {
+      this.setState({
+        ...this.state,
+        favorites: [...this.state.favorites, this.state.dadJoke]
+      })
+    } else {
+      window.alert('You already saved this to your favorites!')
+    }
   }
 
   removeFromFavorites = (id) => {

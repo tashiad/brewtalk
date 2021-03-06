@@ -17,7 +17,7 @@ const JokeCard = ({
         <div className="jokeButtons">
           <button
             className="cardButton save button-secondary"
-            onClick={() => addToFavorites()}
+            onClick={() => addToFavorites(id)}
           >
           Save
           </button>
