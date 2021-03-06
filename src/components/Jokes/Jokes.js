@@ -2,7 +2,14 @@ import React from 'react'
 import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
-const Jokes = ({ getJoke, dadJoke, selectJoke, unSelectJoke }) => {
+const Jokes = ({
+  getJoke,
+  dadJoke,
+  selectJoke,
+  unSelectJoke,
+  addToFavorites
+}) => {
+
   const checkForJoke = () => {
     if (Object.keys(dadJoke).length === 0) {
       return null
@@ -14,6 +21,7 @@ const Jokes = ({ getJoke, dadJoke, selectJoke, unSelectJoke }) => {
           selectedJoke={dadJoke.selected || false}
           selectJoke={selectJoke}
           unSelectJoke={unSelectJoke}
+          addToFavorites={addToFavorites}
         />
       )
     }
