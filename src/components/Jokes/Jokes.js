@@ -2,12 +2,19 @@ import React from 'react'
 import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
-const Jokes = ({ getJoke, dadJoke }) => {
+const Jokes = ({ getJoke, dadJoke, selectJoke }) => {
   const checkForJoke = () => {
     if (Object.keys(dadJoke).length === 0) {
       return null
     } else {
-      return <JokeCard id={dadJoke.id} joke={dadJoke.joke} />
+      return (
+        <JokeCard
+          id={dadJoke.id}
+          joke={dadJoke.joke}
+          selectedJoke={dadJoke.selected || false}
+          selectJoke={selectJoke}
+        />
+      )
     }
   }
 

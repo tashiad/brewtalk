@@ -64,6 +64,16 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
+  selectJoke = () => {
+    const newJoke = this.state.dadJoke
+    newJoke.selected = true
+
+    this.setState({
+      ...this.state,
+      dadJoke: newJoke
+    })
+  }
+
   render() {
     return (
       <>
@@ -81,6 +91,7 @@ class App extends Component {
           <Jokes
             getJoke={this.getJoke}
             dadJoke={this.state.dadJoke}
+            selectJoke={this.selectJoke}
           />
           <Directions />
         </main>
