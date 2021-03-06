@@ -10,16 +10,26 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      searchedBreweries: []
+      searchedBreweries: [],
       selectedBrewery: {}
     }
   }
 
-  getBreweries = (input) => {
+  getBreweries = input => {
     fetch(`https://api.openbrewerydb.org/breweries/search?query=${input}`)
       .then(response => response.json())
       .then(breweries => this.setState({ searchedBreweries: breweries }))
       .catch(error => console.log(error))
+  }
+
+  selectBrewery = id => {
+    console.log("hi", id)
+
+    const foundBrewery = this.state.searchedBreweries.filter(brewery => {
+      return brewery.id === id
+    })
+
+    this.setState({ selectedBrewery: foundBrewery })
   }
 
   render() {
@@ -32,6 +42,7 @@ class App extends Component {
           <Breweries
             getBreweries={this.getBreweries}
             searchedBreweries={this.state.searchedBreweries}
+            selectBrewery={this.selectBrewery}
           />
           <Jokes />
           <Directions />

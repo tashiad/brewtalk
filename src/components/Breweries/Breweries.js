@@ -3,7 +3,7 @@ import './Breweries.css'
 import Search from '../Search/Search'
 import BreweryCard from '../BreweryCard/BreweryCard'
 
-const Breweries = ({ searchedBreweries, getBreweries }) => {
+const Breweries = ({ searchedBreweries, getBreweries, selectBrewery }) => {
   const sortedBreweries = searchedBreweries.sort((a, b) => {
     if (a.name < b.name) {
       return -1;
@@ -27,6 +27,7 @@ const Breweries = ({ searchedBreweries, getBreweries }) => {
         phone={brewery.phone}
         website_url={brewery.website_url}
         updated_at={brewery.updated_at}
+        selectBrewery={selectBrewery}
       />
     )
   })
