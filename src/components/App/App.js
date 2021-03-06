@@ -5,14 +5,21 @@ import Header from '../Header/Header'
 import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
-import breweryData from '../../data/mock-brewery-data'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      breweryData: breweryData
+      searchedBreweries: []
+      selectedBrewery: {}
     }
+  }
+
+  getBreweries = (input) => {
+    fetch(`https://api.openbrewerydb.org/breweries/search?query=${input}`)
+      .then(response => response.json())
+      .then(breweries => this.setState({ searchedBreweries: breweries }))
+      .catch(error => console.log(error))
   }
 
   render() {
@@ -22,7 +29,10 @@ class App extends Component {
         <Header />
         <hr/>
         <main>
-          <Breweries breweryData={this.state.breweryData}/>
+          <Breweries
+            getBreweries={this.getBreweries}
+            searchedBreweries={this.state.searchedBreweries}
+          />
           <Jokes />
           <Directions />
         </main>
