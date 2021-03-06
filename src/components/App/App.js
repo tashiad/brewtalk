@@ -23,13 +23,13 @@ class App extends Component {
   }
 
   selectBrewery = id => {
-    console.log("hi", id)
-
     const foundBrewery = this.state.searchedBreweries.filter(brewery => {
       return brewery.id === id
     })
 
-    this.setState({ selectedBrewery: foundBrewery })
+    this.setState({
+      selectedBrewery: foundBrewery
+    })
   }
 
   render() {

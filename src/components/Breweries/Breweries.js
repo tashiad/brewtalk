@@ -38,7 +38,9 @@ const Breweries = ({ searchedBreweries, getBreweries, selectBrewery }) => {
         <p className="number">1</p>
         <Search getBreweries={getBreweries}/>
       </div>
-      {brewCards}
+      <div className="brewCards-container">
+        {brewCards}
+      </div>
     </section>
   )
 }
