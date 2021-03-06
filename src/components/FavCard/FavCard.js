@@ -1,11 +1,19 @@
 import React from 'react'
 import './FavCard.css'
 
-const FavCard = () => {
+const FavCard = ({ id, joke }) => {
 
   return (
     <article>
-      <p>Fav Card</p>
+    <div className="jokeTop">
+      <h4>Dad Joke</h4>
+      <button
+        className="cardButton save button-secondary"
+      >
+      Remove
+      </button>
+    </div>
+    <p className="cardContents">{joke}</p>
     </article>
   )
 }

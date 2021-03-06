@@ -118,7 +118,7 @@ class App extends Component {
             selectedBrewery={this.state.selectedBrewery}
             dadJoke={this.state.dadJoke}
           />
-          <Favorites />
+          <Favorites favorites={this.state.favorites}/>
         </main>
       </>
     )
