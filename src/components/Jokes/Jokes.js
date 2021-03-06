@@ -3,7 +3,13 @@ import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
 const Jokes = ({ getJoke, dadJoke }) => {
-  const joke = <JokeCard id={dadJoke.id} joke={dadJoke.joke} />
+  const checkForJoke = () => {
+    if (Object.keys(dadJoke).length === 0) {
+      return null
+    } else {
+      return <JokeCard id={dadJoke.id} joke={dadJoke.joke} />
+    }
+  }
 
   return (
     <section>
@@ -18,7 +24,7 @@ const Jokes = ({ getJoke, dadJoke }) => {
         Generate a random dad joke
         </button>
       </div>
-      {joke}
+      {checkForJoke()}
     </section>
   )
 }
