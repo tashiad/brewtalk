@@ -6,6 +6,7 @@ import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
 import Favorites from '../Favorites/Favorites'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -44,7 +45,8 @@ class App extends Component {
 
     foundBrewery.selected = true
 
-    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery) // splice isn't actually working--REFACTOR
+    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery)
+    // splice isn't actually working--REFACTOR
 
     this.setState({
       ...this.state,
@@ -111,30 +113,43 @@ class App extends Component {
         <Nav />
         <Header />
         <hr/>
-        <main>
-          <Breweries
-            getBreweries={this.getBreweries}
-            searchedBreweries={this.state.searchedBreweries}
-            selectBrewery={this.selectBrewery}
-            searchedWithSelected={this.state.searchedWithSelected}
-            searchValue={this.state.searchValue}
-          />
-          <Jokes
-            getJoke={this.getJoke}
-            dadJoke={this.state.dadJoke}
-            selectJoke={this.selectJoke}
-            unSelectJoke={this.unSelectJoke}
-            addToFavorites={this.addToFavorites}
-          />
-          <Directions
-            selectedBrewery={this.state.selectedBrewery}
-            dadJoke={this.state.dadJoke}
-          />
-          <Favorites
-            favorites={this.state.favorites}
-            removeFromFavorites={this.removeFromFavorites}
-          />
-        </main>
+
+        <Route
+          exact path="/"
+          render={() =>
+            <main>
+              <Breweries
+                getBreweries={this.getBreweries}
+                searchedBreweries={this.state.searchedBreweries}
+                selectBrewery={this.selectBrewery}
+                searchedWithSelected={this.state.searchedWithSelected}
+                searchValue={this.state.searchValue}
+              />
+              <Jokes
+                getJoke={this.getJoke}
+                dadJoke={this.state.dadJoke}
+                selectJoke={this.selectJoke}
+                unSelectJoke={this.unSelectJoke}
+                addToFavorites={this.addToFavorites}
+              />
+              <Directions
+                selectedBrewery={this.state.selectedBrewery}
+                dadJoke={this.state.dadJoke}
+              />
+            </main>
+          }
+        />
+
+        <Route
+          path="/favorites"
+          render={() =>
+            <Favorites
+              favorites={this.state.favorites}
+              removeFromFavorites={this.removeFromFavorites}
+            />
+          }
+        />
+
       </>
     )
   }
