@@ -10,7 +10,11 @@ const BreweryCard = ({
   state,
   phone,
   website_url,
-  updated_at
+  updated_at,
+  selectBrewery,
+  selectedBrewery,
+  getBreweries,
+  searchValue
 }) => {
 
   const formatPhone = (number => {
@@ -30,8 +34,23 @@ const BreweryCard = ({
   })
 
   return (
-    <article className="breweryCard" id={id}>
-      <button className="cardButton select brewButton button-primary">Select</button>
+    <article className={selectedBrewery ? 'selectedCard' : null}>
+      { !selectedBrewery &&
+        <button
+          className="cardButton select brewButton button-primary"
+          onClick={() => selectBrewery(id)}
+        >
+        Select
+        </button>
+      }
+      { selectedBrewery &&
+        <button
+          className="cardButton select brewButton button-primary"
+          onClick={() => getBreweries(searchValue)}
+        >
+        Un-Select
+        </button>
+      }
       <div className="cardContents">
         <h3>{name}</h3>
         <p><span className="typeTag">{brewery_type}</span></p>

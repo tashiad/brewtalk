@@ -3,8 +3,27 @@ import './Breweries.css'
 import Search from '../Search/Search'
 import BreweryCard from '../BreweryCard/BreweryCard'
 
-const Breweries = ({ breweryData }) => {
-  const brewCards = breweryData.map(brewery => {
+const Breweries = ({
+  searchedBreweries,
+  searchedWithSelected,
+  getBreweries,
+  selectBrewery,
+  searchValue
+}) => {
+
+  const cardsToShow = searchedWithSelected.length ? searchedWithSelected : searchedBreweries
+
+  const sortedBreweries = cardsToShow.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  })
+
+  const brewCards = sortedBreweries.map(brewery => {
     return (
       <BreweryCard
         id={brewery.id}
@@ -17,6 +36,10 @@ const Breweries = ({ breweryData }) => {
         phone={brewery.phone}
         website_url={brewery.website_url}
         updated_at={brewery.updated_at}
+        selectBrewery={selectBrewery}
+        selectedBrewery={brewery.selected || false}
+        getBreweries={getBreweries}
+        searchValue={searchValue}
       />
     )
   })
@@ -25,9 +48,11 @@ const Breweries = ({ breweryData }) => {
     <section>
       <div className="section-top">
         <p className="number">1</p>
-        <Search />
+        <Search getBreweries={getBreweries}/>
       </div>
-      {brewCards}
+      <div className="brewCards-container">
+        {brewCards}
+      </div>
     </section>
   )
 }

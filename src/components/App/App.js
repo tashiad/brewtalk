@@ -5,14 +5,49 @@ import Header from '../Header/Header'
 import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
-import breweryData from '../../data/mock-brewery-data'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      breweryData: breweryData
+      searchedBreweries: [],
+      searchedWithSelected: [],
+      selectedBrewery: {},
+      searchValue: ''
     }
+  }
+
+  getBreweries = input => {
+    this.setState({
+      searchedBreweries: [],
+      searchedWithSelected: [],
+      selectedBrewery: {},
+      searchValue: input
+    })
+
+    fetch(`https://api.openbrewerydb.org/breweries/search?query=${input}`)
+      .then(response => response.json())
+      .then(breweries => this.setState({ searchedBreweries: breweries }))
+      .catch(error => console.log(error))
+  }
+
+  selectBrewery = id => {
+    let i
+
+    const foundBrewery = this.state.searchedBreweries.find((brewery, index) => {
+      i = index
+      return brewery.id === id
+    })
+
+    foundBrewery.selected = true
+
+    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery)
+
+    this.setState({
+      ...this.state,
+      searchedWithSelected: newArr,
+      selectedBrewery: foundBrewery
+    })
   }
 
   render() {
@@ -22,7 +57,13 @@ class App extends Component {
         <Header />
         <hr/>
         <main>
-          <Breweries breweryData={this.state.breweryData}/>
+          <Breweries
+            getBreweries={this.getBreweries}
+            searchedBreweries={this.state.searchedBreweries}
+            selectBrewery={this.selectBrewery}
+            searchedWithSelected={this.state.searchedWithSelected}
+            searchValue={this.state.searchValue}
+          />
           <Jokes />
           <Directions />
         </main>

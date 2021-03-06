@@ -18,3 +18,7 @@ h3 {
   font-size: .8em;
   font-style: italic;
 }
+
+.selectedCard {
+  background-color: orange;
+}
