@@ -15,7 +15,12 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
       <div className="section-top">
         <p className="number">3</p>
         <label className="step" htmlFor="directions">Head out:</label>
-        <button className="button-top button-primary" name="directions">Get Directions</button>
+        {!selectedBrewery.selected && <button className="button-top button-primary" name="directions" disabled={true}>Get Directions</button>}
+        {selectedBrewery.selected &&
+          <a href={`https://www.google.com/maps/search/?api=1&query=${selectedBrewery.name}`} target="_blank" rel="noreferrer">
+            <button className="button-top button-primary" name="directions" disabled={false}>Get Directions</button>
+          </a>
+        }
       </div>
       {checkForSelections()}
     </section>
