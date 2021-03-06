@@ -5,6 +5,7 @@ import Header from '../Header/Header'
 import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
+import Favorites from '../Favorites/Favorites'
 
 class App extends Component {
   constructor() {
@@ -117,6 +118,7 @@ class App extends Component {
             selectedBrewery={this.state.selectedBrewery}
             dadJoke={this.state.dadJoke}
           />
+          <Favorites />
         </main>
       </>
     )
