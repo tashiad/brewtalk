@@ -2,7 +2,7 @@ import React from 'react'
 import './Favorites.css'
 import FavCard from '../FavCard/FavCard'
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ favorites, removeFromFavorites }) => {
   const checkForFavs = () => {
     if (favorites.length) {
       return favorites.map(fav => {
@@ -11,6 +11,7 @@ const Favorites = ({ favorites }) => {
             key={fav.id}
             id={fav.id}
             joke={fav.joke}
+            removeFromFavorites={removeFromFavorites}
           />
         )
       })

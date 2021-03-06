@@ -87,10 +87,17 @@ class App extends Component {
   }
 
   addToFavorites = () => {
+    // create conditional so they can't add the same one to favs again
     this.setState({
       ...this.state,
       favorites: [...this.state.favorites, this.state.dadJoke]
     })
+  }
+
+  removeFromFavorites = (id) => {
+    const filteredFavs = this.state.favorites.filter(joke => joke.id !== id)
+
+    this.setState({ favorites: filteredFavs })
   }
 
   render() {
@@ -118,7 +125,10 @@ class App extends Component {
             selectedBrewery={this.state.selectedBrewery}
             dadJoke={this.state.dadJoke}
           />
-          <Favorites favorites={this.state.favorites}/>
+          <Favorites
+            favorites={this.state.favorites}
+            removeFromFavorites={this.removeFromFavorites}
+          />
         </main>
       </>
     )
