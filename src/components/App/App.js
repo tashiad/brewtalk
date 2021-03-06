@@ -104,7 +104,10 @@ class App extends Component {
             selectJoke={this.selectJoke}
             unSelectJoke={this.unSelectJoke}
           />
-          <Directions />
+          <Directions
+            selectedBrewery={this.state.selectedBrewery}
+            dadJoke={this.state.dadJoke}
+          />
         </main>
       </>
     )
