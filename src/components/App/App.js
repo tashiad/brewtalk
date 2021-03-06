@@ -13,7 +13,8 @@ class App extends Component {
       searchedBreweries: [],
       searchedWithSelected: [],
       selectedBrewery: {},
-      searchValue: ''
+      searchValue: '',
+      dadJoke: {}
     }
   }
 
@@ -50,6 +51,39 @@ class App extends Component {
     })
   }
 
+  getJoke = () => {
+    fetch('https://icanhazdadjoke.com/', {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "BrewTalk (https://github.com/tashiad/brewtalk)"
+      }
+    })
+    .then(response => response.json())
+    .then(joke => this.setState({ dadJoke: joke }))
+    .catch(error => console.log(error))
+  }
+
+  selectJoke = () => {
+    const newJoke = this.state.dadJoke
+    newJoke.selected = true
+
+    this.setState({
+      ...this.state,
+      dadJoke: newJoke
+    })
+  }
+
+  unSelectJoke = () => {
+    const newJoke = this.state.dadJoke
+    newJoke.selected = false
+
+    this.setState({
+      ...this.state,
+      dadJoke: newJoke
+    })
+  }
+
   render() {
     return (
       <>
@@ -64,7 +98,12 @@ class App extends Component {
             searchedWithSelected={this.state.searchedWithSelected}
             searchValue={this.state.searchValue}
           />
-          <Jokes />
+          <Jokes
+            getJoke={this.getJoke}
+            dadJoke={this.state.dadJoke}
+            selectJoke={this.selectJoke}
+            unSelectJoke={this.unSelectJoke}
+          />
           <Directions />
         </main>
       </>
