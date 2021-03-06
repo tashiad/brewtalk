@@ -1,14 +1,26 @@
 import React from 'react'
 import './JokeCard.css'
 
-const JokeCard = ({ id, joke, selectedJoke, selectJoke, unSelectJoke }) => {
+const JokeCard = ({
+  id,
+  joke,
+  selectedJoke,
+  selectJoke,
+  unSelectJoke,
+  addToFavorites
+}) => {
 
   return (
     <article className={selectedJoke ? 'selectedJoke' : null}>
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <div className="jokeButtons">
-          <button className="cardButton save button-secondary">Save</button>
+          <button
+            className="cardButton save button-secondary"
+            onClick={() => addToFavorites()}
+          >
+          Save
+          </button>
           {!selectedJoke &&
             <button
               className="cardButton select button-primary"

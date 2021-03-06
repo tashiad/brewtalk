@@ -14,7 +14,8 @@ class App extends Component {
       searchedWithSelected: [],
       selectedBrewery: {},
       searchValue: '',
-      dadJoke: {}
+      dadJoke: {},
+      favorites: []
     }
   }
 
@@ -42,7 +43,7 @@ class App extends Component {
 
     foundBrewery.selected = true
 
-    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery)
+    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery) // splice isn't actually working--REFACTOR
 
     this.setState({
       ...this.state,
@@ -84,6 +85,13 @@ class App extends Component {
     })
   }
 
+  addToFavorites = () => {
+    this.setState({
+      ...this.state,
+      favorites: [...this.state.favorites, this.state.dadJoke]
+    })
+  }
+
   render() {
     return (
       <>
@@ -103,6 +111,7 @@ class App extends Component {
             dadJoke={this.state.dadJoke}
             selectJoke={this.selectJoke}
             unSelectJoke={this.unSelectJoke}
+            addToFavorites={this.addToFavorites}
           />
           <Directions
             selectedBrewery={this.state.selectedBrewery}
