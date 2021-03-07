@@ -1,7 +1,0 @@
-.disabled {
-  background-color: gray;
-}
-
-.disabled:hover {
-  cursor: not-allowed;
-}
