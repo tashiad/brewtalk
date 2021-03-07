@@ -86,19 +86,33 @@ class App extends Component {
     const foundFav = this.state.favorites.find(fav => fav.id === id)
 
     if (!foundFav) {
+      const newJoke = this.state.dadJoke
+      newJoke.saved = true
+
       this.setState({
         ...this.state,
         favorites: [...this.state.favorites, this.state.dadJoke]
       })
-    } else {
-      window.alert('You already saved this to your favorites!')
-    }
+    } 
   }
 
   removeFromFavorites = (id) => {
+    let i
+
+    this.state.favorites.find((fav, index) => {
+      i = index
+      return fav.id === id
+    })
+
+    const newJoke = this.state.favorites[i]
+    newJoke.saved = false
+
     const filteredFavs = this.state.favorites.filter(joke => joke.id !== id)
 
-    this.setState({ favorites: filteredFavs })
+    this.setState({
+      ...this.state,
+      favorites: filteredFavs
+    })
   }
 
   render() {

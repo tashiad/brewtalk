@@ -23,6 +23,7 @@ const Jokes = ({
           selectJoke={selectJoke}
           unSelectJoke={unSelectJoke}
           addToFavorites={addToFavorites}
+          saved={dadJoke.saved || false}
         />
       )
     }

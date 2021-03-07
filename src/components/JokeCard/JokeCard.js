@@ -8,7 +8,8 @@ const JokeCard = ({
   selectedJoke,
   selectJoke,
   unSelectJoke,
-  addToFavorites
+  addToFavorites,
+  saved
 }) => {
 
   return (
@@ -16,12 +17,21 @@ const JokeCard = ({
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <div className="jokeButtons">
-          <button
-            className="cardButton save button-secondary"
-            onClick={() => addToFavorites(id)}
-          >
-          Save
-          </button>
+          {!saved &&
+            <button
+              className="cardButton save button-secondary"
+              onClick={() => addToFavorites(id)}
+            >
+            Save
+            </button>
+          }
+          {saved &&
+            <button
+              className="cardButton save button-secondary disabled"
+            >
+            Saved
+            </button>
+          }
           {!selectedJoke &&
             <button
               className="cardButton select button-primary"
