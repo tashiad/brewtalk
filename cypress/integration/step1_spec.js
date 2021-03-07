@@ -1,24 +1,5 @@
 const baseUrl = 'http://localhost:3000'
 
-describe('Homepage: Header', () => {
-
-  it('Should have correct header and subheader', () => {
-    cy
-      .visit(baseUrl)
-      .get('header')
-      .get('h1').should('have.text', 'BrewTalk')
-      .get('h2').should('have.text', 'Breweries + dad jokes for the introverted.')
-  })
-
-  it('Should have a nav bar', () => {
-    cy
-      .visit(baseUrl)
-      .get('nav')
-      .get('li').should('contain', 'Home')
-      .get('li').should('contain', 'Favorites')
-  })
-})
-
 describe('Homepage: Step 1', () => {
   it('Should render step 1 correctly before searching breweries', () => {
     cy
@@ -88,92 +69,12 @@ describe('Homepage: Step 1', () => {
       .should('have.text', 'Unable to find breweries. Please refresh the page or try again later.')
   })
 
-  it('Should display an message if the search input returns nothing from the breweries API', () => {
+  it('Should display a message if the search input returns nothing from the breweries API', () => {
     cy
       .intercept('https://api.openbrewerydb.org/breweries/search?query=dsvkbhaj')
       .visit(baseUrl)
       .get('input[class="searchBox"]').type('dsvkbhaj').type('{enter}')
       .get('.brewCards-container')
       .should('have.text', 'No breweries match your search.')
-  })
-})
-
-describe('Homepage: Step 2', () => {
-  it('Should render step 2 correctly before fetching a dad joke', () => {
-    cy
-      .visit(baseUrl)
-      .get('.number').eq(1).should('have.text', '2')
-      .get('label').eq(1).should('have.text', 'Select a dad joke:')
-      .get('button[name="joke"]').should('have.text', 'Generate a random dad joke')
-  })
-
-  it('Should render a random dad joke when button is clicked', () => {
-    cy
-      .intercept('https://icanhazdadjoke.com/', {fixture: 'jokes-fixture.json'})
-      .visit(baseUrl)
-      .get('.number').eq(1).should('have.text', '2')
-      .get('label').eq(1).should('have.text', 'Select a dad joke:')
-      .get('button[name="joke"]').click()
-      .get('.cardContents').should('have.text', 'TEST: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.')
-  })
-
-  it('Should be able to select a dad joke', () => {
-    cy
-      .intercept('https://icanhazdadjoke.com/', {fixture: 'jokes-fixture.json'})
-      .visit(baseUrl)
-      .get('button[name="joke"]').click()
-      .get('button[name="selectJoke"]').should('have.text', 'Select').click()
-      .get('article[class="selectedJoke"]')
-      .get('button[name="selectJoke"]').should('have.text', 'Un-Select')
-  })
-
-  it('Should be able to unselect a dad joke', () => {
-    cy
-      .intercept('https://icanhazdadjoke.com/', {fixture: 'jokes-fixture.json'})
-      .visit(baseUrl)
-      .get('button[name="joke"]').click()
-      .get('button[name="selectJoke"]').should('have.text', 'Select').click()
-      .get('article[class="selectedJoke"]')
-      .get('button[name="selectJoke"]').should('have.text', 'Un-Select').click()
-      .get('article[class="selectedJoke"]').should('not.exist')
-  })
-
-  it.skip('Should display an error message when the server returns a 400 error', () => {
-    cy.intercept('GET', statesAPI, { statusCode: 404 })
-      .visit(baseUrl)
-      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
-  })
-
-  it.skip('Should display an error message when the server returns a 500 error', () => {
-    cy.intercept('GET', statesAPI, { statusCode: 500 })
-      .visit(baseUrl)
-      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
-  })
-})
-
-describe('Homepage: Step 3', () => {
-
-
-})
-
-describe('Favorites Page', () => {
-  it('Should render correctly without any saved jokes upon initial visit', () => {
-
-  })
-
-  it('Should be able to save a joke to favorites', () => {
-
-  })
-
-  it('Should not be able to save duplicate jokes', () => {
-
-  })
-
-  it('Should render all saved joke cards', () => {
-
-  })
-
-  it('Should be able to remove a joke from favorites', () => {
-
   })
 })
