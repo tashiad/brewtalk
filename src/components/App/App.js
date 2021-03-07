@@ -22,24 +22,30 @@ class App extends Component {
       brewError: '',
       jokeError: '',
       brewLoading: false,
-      jokeLoading: false,
+      jokeLoading: false
     }
   }
 
   getBreweries = input => {
-    this.setState({
-      ...this.state,
-      searchedBreweries: [],
-      searchedWithSelected: [],
-      selectedBrewery: {},
-      searchValue: input,
-      brewLoading: true
-    })
+    this.resetBrewState()
+
+    this.setState({ searchValue: input, brewLoading: true })
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
       .catch(error => this.setState({ brewError: 'Unable to find breweries. Please refresh the page or try again later.' }))
       .finally(() => this.setState({ brewLoading: false }))
+  }
+
+  resetBrewState = () => {
+    this.setState({
+      searchedBreweries: [],
+      searchedWithSelected: [],
+      selectedBrewery: {},
+      searchValue: '',
+      brewError: '',
+      brewLoading: false,
+    })
   }
 
   selectBrewery = id => {
@@ -56,17 +62,13 @@ class App extends Component {
     // splice isn't actually working--REFACTOR
 
     this.setState({
-      ...this.state,
       searchedWithSelected: newArr,
       selectedBrewery: foundBrewery
     })
   }
 
   getJoke = () => {
-    this.setState({
-      ...this.state,
-      jokeLoading: true
-    })
+    this.setState({ jokeLoading: true })
 
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
