@@ -21,7 +21,8 @@ class App extends Component {
       favorites: [],
       brewError: '',
       jokeError: '',
-      isLoading: false
+      brewLoading: false,
+      jokeLoading: false,
     }
   }
 
@@ -32,13 +33,13 @@ class App extends Component {
       searchedWithSelected: [],
       selectedBrewery: {},
       searchValue: input,
-      isLoading: true
+      brewLoading: true
     })
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
       .catch(error => this.setState({ brewError: 'Unable to find breweries. Please refresh the page or try again later.' }))
-      .finally(() => this.setState({ isLoading: false }))
+      .finally(() => this.setState({ brewLoading: false }))
   }
 
   selectBrewery = id => {
@@ -64,13 +65,13 @@ class App extends Component {
   getJoke = () => {
     this.setState({
       ...this.state,
-      isLoading: true
+      jokeLoading: true
     })
 
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
       .catch(error => this.setState({ jokeError: 'Unable to find a dad joke. Please refresh the page or try again later.' }))
-      .finally(() => this.setState({ isLoading: false }))
+      .finally(() => this.setState({ jokeLoading: false }))
   }
 
   selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
@@ -136,7 +137,8 @@ class App extends Component {
       favorites,
       brewError,
       jokeError,
-      isLoading
+      brewLoading,
+      jokeLoading
     } = this.state
 
     return (
@@ -156,7 +158,7 @@ class App extends Component {
                 searchedWithSelected={searchedWithSelected}
                 searchValue={searchValue}
                 brewError={brewError}
-                isLoading={isLoading}
+                brewLoading={brewLoading}
               />
               <Jokes
                 getJoke={this.getJoke}
@@ -165,7 +167,7 @@ class App extends Component {
                 unSelectJoke={this.unSelectJoke}
                 addToFavorites={this.addToFavorites}
                 jokeError={jokeError}
-                isLoading={isLoading}
+                jokeLoading={jokeLoading}
               />
               <Directions
                 selectedBrewery={selectedBrewery}

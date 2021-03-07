@@ -10,7 +10,7 @@ const Jokes = ({
   unSelectJoke,
   addToFavorites,
   jokeError,
-  isLoading
+  jokeLoading
 }) => {
 
   const checkForJoke = () => {
@@ -45,7 +45,7 @@ const Jokes = ({
         </button>
       </div>
       {jokeError && <h2>{jokeError}</h2>}
-      {isLoading && <h2>Loading...</h2>}
+      {jokeLoading && <h2>Loading...</h2>}
       {checkForJoke()}
     </section>
   )
@@ -58,7 +58,7 @@ Jokes.propTypes = {
   unSelectJoke: PropTypes.func,
   addToFavorites: PropTypes.func,
   error: PropTypes.string,
-  isLoading: PropTypes.bool
+  jokeLoading: PropTypes.bool
 }
 
 export default Jokes
