@@ -12,8 +12,8 @@ const BreweryCard = ({
   phone,
   website_url,
   updated_at,
-  selectBrewery,
   selectedBrewery,
+  selectBrewery,
   getBreweries,
   searchValue
 }) => {

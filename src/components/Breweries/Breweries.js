@@ -6,15 +6,15 @@ import BreweryCard from '../BreweryCard/BreweryCard'
 
 const Breweries = ({
   searchedBreweries,
-  searchedWithSelected,
-  getBreweries,
-  selectBrewery,
+  selectedBrewery,
   searchValue,
   brewError,
-  brewLoading
+  brewLoading,
+  getBreweries,
+  selectBrewery
 }) => {
 
-  const cardsToShow = searchedWithSelected.length ? searchedWithSelected : searchedBreweries
+  const cardsToShow = selectedBrewery.length ? selectedBrewery : searchedBreweries
 
   const sortedBreweries = cardsToShow.sort((a, b) => {
     if (a.name < b.name) {
@@ -39,8 +39,8 @@ const Breweries = ({
         phone={brewery.phone}
         website_url={brewery.website_url}
         updated_at={brewery.updated_at}
-        selectBrewery={selectBrewery}
         selectedBrewery={brewery.selected || false}
+        selectBrewery={selectBrewery}
         getBreweries={getBreweries}
         searchValue={searchValue}
       />
@@ -67,12 +67,12 @@ const Breweries = ({
 
 Breweries.propTypes = {
   searchedBreweries: PropTypes.array,
-  searchedWithSelected: PropTypes.array,
-  getBreweries: PropTypes.func,
-  selectBrewery: PropTypes.func,
+  selectedBrewery: PropTypes.array,
   searchValue: PropTypes.string,
-  error: PropTypes.string,
-  brewLoading: PropTypes.bool
+  brewError: PropTypes.string,
+  brewLoading: PropTypes.bool,
+  getBreweries: PropTypes.func,
+  selectBrewery: PropTypes.func
 }
 
 export default Breweries

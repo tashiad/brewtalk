@@ -29,7 +29,7 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
 }
 
 Directions.propTypes = {
-  selectedBrewery: PropTypes.object,
+  selectedBrewery: PropTypes.array,
   dadJoke: PropTypes.object
 }
 
