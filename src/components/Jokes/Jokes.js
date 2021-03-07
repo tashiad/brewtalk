@@ -43,6 +43,7 @@ const Jokes = ({
         Generate a random dad joke
         </button>
       </div>
+      {error && <h2>{error}</h2>}
       {checkForJoke()}
     </section>
   )

@@ -4,17 +4,12 @@ export const fetchBreweries = (input) => {
 }
 
 export const fetchJoke = () => {
-  return fetch('https://icanhazdadjoke.com/', {
+  return fetch('https://icanhazdad.com/', {
     method: "GET",
     headers: {
       Accept: "application/json",
       "User-Agent": "BrewTalk (https://github.com/tashiad/brewtalk)"
     }
   })
-  .then((response) => {
-    if(!response.ok) {
-      throw Error('Unable to find a dad joke. Please refresh the page or try again later.')
-    }
-    return response.json()
-  })
+  .then((response) =>  response.json())
 }

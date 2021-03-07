@@ -59,7 +59,7 @@ class App extends Component {
   getJoke = () => {
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
-      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
+      .catch(error => this.setState({ error: 'Unable to find a dad joke. Please refresh the page or try again later.' }))
   }
 
   selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
@@ -150,6 +150,7 @@ class App extends Component {
                 selectJoke={this.selectJoke}
                 unSelectJoke={this.unSelectJoke}
                 addToFavorites={this.addToFavorites}
+                error={error}
               />
               <Directions
                 selectedBrewery={selectedBrewery}
