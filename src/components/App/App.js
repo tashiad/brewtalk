@@ -74,24 +74,10 @@ class App extends Component {
       .finally(() => this.setState({ jokeLoading: false }))
   }
 
-  selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
+  toggleSelectJoke = (bool) => {
     const newJoke = this.state.dadJoke
-    newJoke.selected = true
-
-    this.setState({
-      ...this.state,
-      dadJoke: newJoke
-    })
-  }
-
-  unSelectJoke = () => { // REFACTOR
-    const newJoke = this.state.dadJoke
-    newJoke.selected = false
-
-    this.setState({
-      ...this.state,
-      dadJoke: newJoke
-    })
+    newJoke.selected = bool
+    this.setState({ dadJoke: newJoke })
   }
 
   addToFavorites = (id) => {
@@ -163,8 +149,7 @@ class App extends Component {
               <Jokes
                 getJoke={this.getJoke}
                 dadJoke={dadJoke}
-                selectJoke={this.selectJoke}
-                unSelectJoke={this.unSelectJoke}
+                toggleSelectJoke={this.toggleSelectJoke}
                 addToFavorites={this.addToFavorites}
                 jokeError={jokeError}
                 jokeLoading={jokeLoading}
