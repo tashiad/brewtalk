@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import './App.css'
 import Nav from '../Nav/Nav'
 import Header from '../Header/Header'
@@ -63,7 +62,7 @@ class App extends Component {
       .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
   }
 
-  selectJoke = () => {
+  selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
     const newJoke = this.state.dadJoke
     newJoke.selected = true
 
@@ -73,7 +72,7 @@ class App extends Component {
     })
   }
 
-  unSelectJoke = () => {
+  unSelectJoke = () => { // REFACTOR
     const newJoke = this.state.dadJoke
     newJoke.selected = false
 

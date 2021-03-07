@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Breweries.css'
 import Search from '../Search/Search'
 import BreweryCard from '../BreweryCard/BreweryCard'
@@ -55,6 +56,14 @@ const Breweries = ({
       </div>
     </section>
   )
+}
+
+Breweries.propTypes = {
+  searchedBreweries: PropTypes.array,
+  searchedWithSelected: PropTypes.array,
+  getBreweries: PropTypes.func,
+  selectBrewery: PropTypes.func,
+  searchValue: PropTypes.string
 }
 
 export default Breweries
