@@ -1,94 +1,86 @@
-describe('Homepage', () => {
-  it.skip('Should have correct header and subheader', () => {
+const baseUrl = 'http://localhost:3000'
+
+describe('Homepage: Header', () => {
+
+  it('Should have correct header and subheader', () => {
     cy
-      .visit('http://localhost:3000')
-      .get('header').contains('h1', 'GrossVeggies')
-      .get('header').contains('h2', 'Movie ratings and more.')
+      .visit(baseUrl)
+      .get('header')
+      .get('h1').should('have.text', 'BrewTalk')
+      .get('h2').should('have.text', 'Breweries + dad jokes for the introverted.')
   })
 
-  it.skip('Should show movie data on page load', () => {
+  it('Should have a nav bar', () => {
     cy
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'mock-movie-data.json'})
-      .visit('http://localhost:3000')
-      .get('.poster-title').contains('Test 1')
-      .get('.poster-img').should('have.attr', 'src').should('include', "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
-      .get('.poster-rating').contains('6.7/10')
-  })
-
-  it.skip('Should show an error message for a server side error for all movies API', () => {
-    cy
-      .intercept({
-        method: 'GET',
-        url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
-      },
-      {
-        statusCode: 500
-      })
-      .visit('http://localhost:3000')
-      .get('.error-message').contains('h2', 'Unable to find movies.')
-  })
-
-  it.skip('Should be able to search by movie title', () => {
-    cy
-      .visit('http://localhost:3000')
-      .get('.input-field').type('war')
-      .get('.search-button').click()
-      .get('.poster:first').contains('h2', 'Onward')
-      .get('.poster').should('not.contain', 'Mulan')
-  })
-
-  it.skip('Should be able to filter by minimum movie rating', () => {
-    cy
-      .visit('http://localhost:3000')
-      .get('.input-field').type('6')
-      .get('.search-button').click()
-      .get('.poster').should('not.contain', 'Mulan')
+      .visit(baseUrl)
+      .get('nav')
+      .get('li').should('contain', 'Home')
+      .get('li').should('contain', 'Favorites')
   })
 })
 
+describe('Homepage: Step 1', () => {
+  it('Should render step 1 correctly before searching breweries', () => {
+    cy
+      .visit(baseUrl)
+      .get('section')
+      .get('.section-top')
+      .get('.number:first').should('have.text', '1')
+      .get('form')
+      .get('label[for=search]').should('have.text', 'Select a brewery:')
+      .get('div[class="searchBar"]').find('img[class="searchIcon"]').should('be.visible')
+      .get('input[placeholder="Search by name or city"]')
+  })
+
+  it('Should be able to search by brewery name', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Crux', {fixture: 'breweries-name-fixture.json'})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Crux').type('{enter}')
+      .get('article').get('h3').should('contain', 'TEST Back Street Brewery & Tasting Room')
+      .get('article').get('h3').should('not.contain', 'Deschutes Brewery')
+  })
+
+  it('Should be able to search by brewery city', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {fixture: 'breweries-city-fixture.json'})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('article').get('h3').should('contain', 'TEST 10 Barrel Brewing Co')
+      .get('article').get('h3').should('not.contain', 'Denver Beer Co')
+  })
+
+  it('Should be able to select a brewery', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {fixture: 'breweries-city-fixture.json'})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('article:first').contains('button', 'Select').click()
+      .get('article[class="selectedCard"]')
+  })
+
+  it('Should be able to unselect a brewery', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {fixture: 'breweries-city-fixture.json'})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('article:first').contains('button', 'Select').click()
+      .get('article[class="selectedCard"]')
+      .get('article:first').contains('button', 'Un-Select').click()
+      .get('article:first').get('.selectedCard').should('not.exist')
+  })
+})
+
+describe('Homepage: Step 2', () => {
+
+
+})
+
+describe('Homepage: Step 3', () => {
+
+
+})
+
 describe('Favorites Page', () => {
-  it.skip('Should be able to click on a movie poster', () => {
-    cy
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture: 'trailer-data.json'})
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture: 'single-movie-data.json'})
-      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'mock-movie-data.json'})
-      .visit('http://localhost:3000')
-      .get('.poster:first').click()
-      .url().should('include', '/movie/694919')
-      .get('.movie-title').contains('Test 1')
-      .get('.trailer').contains('Trailer')
-  })
 
-  it.skip('Should show an error message for a server side error for single movie API', () => {
-    cy
-      .intercept({
-        method: 'GET',
-        url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919',
-      },
-      {
-        statusCode: 500
-      })
-      .visit('http://localhost:3000/movie/694919')
-      .get('h2').contains('Unable to find movie.')
-  })
-
-  it.skip('Should show an error message for a nonexistent movie id', () => {
-    cy
-      .intercept({
-        method: 'GET',
-        url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/5',
-      },
-      {
-        statusCode: 404
-      })
-      .visit('http://localhost:3000/movie/5')
-      .get('h2').contains('Unable to find movie.')
-  })
-
-  it.skip('Should have a funtional back button from the movie details page', () => {
-    cy
-      .visit('http://localhost:3000/movie/694919')
-      .get('.back-button').click()
-      .get('header').contains('h2', 'Movie ratings and more.')
-  })
 })
