@@ -21,20 +21,24 @@ class App extends Component {
       favorites: [],
       brewError: '',
       jokeError: '',
+      isLoading: false
     }
   }
 
   getBreweries = input => {
     this.setState({
+      ...this.state,
       searchedBreweries: [],
       searchedWithSelected: [],
       selectedBrewery: {},
-      searchValue: input
+      searchValue: input,
+      isLoading: true
     })
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
       .catch(error => this.setState({ brewError: 'Unable to find breweries. Please refresh the page or try again later.' }))
+      .finally(() => this.setState({ isLoading: false }))
   }
 
   selectBrewery = id => {
@@ -58,9 +62,15 @@ class App extends Component {
   }
 
   getJoke = () => {
+    this.setState({
+      ...this.state,
+      isLoading: true
+    })
+
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
       .catch(error => this.setState({ jokeError: 'Unable to find a dad joke. Please refresh the page or try again later.' }))
+      .finally(() => this.setState({ isLoading: false }))
   }
 
   selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
@@ -125,7 +135,8 @@ class App extends Component {
       selectedBrewery,
       favorites,
       brewError,
-      jokeError
+      jokeError,
+      isLoading
     } = this.state
 
     return (
@@ -145,6 +156,7 @@ class App extends Component {
                 searchedWithSelected={searchedWithSelected}
                 searchValue={searchValue}
                 brewError={brewError}
+                isLoading={isLoading}
               />
               <Jokes
                 getJoke={this.getJoke}
@@ -153,6 +165,7 @@ class App extends Component {
                 unSelectJoke={this.unSelectJoke}
                 addToFavorites={this.addToFavorites}
                 jokeError={jokeError}
+                isLoading={isLoading}
               />
               <Directions
                 selectedBrewery={selectedBrewery}

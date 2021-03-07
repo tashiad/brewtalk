@@ -10,7 +10,8 @@ const Breweries = ({
   getBreweries,
   selectBrewery,
   searchValue,
-  brewError
+  brewError,
+  isLoading
 }) => {
 
   const cardsToShow = searchedWithSelected.length ? searchedWithSelected : searchedBreweries
@@ -54,6 +55,7 @@ const Breweries = ({
       </div>
       <div className="brewCards-container">
         {brewError && <h2>{brewError}</h2>}
+        {isLoading && <h2>Loading...</h2>}
         {searchedBreweries.length > 0 && brewCards}
         {!searchedBreweries.length && searchValue &&
           <p>No breweries match your search.</p>
@@ -69,7 +71,8 @@ Breweries.propTypes = {
   getBreweries: PropTypes.func,
   selectBrewery: PropTypes.func,
   searchValue: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
+  isLoading: PropTypes.bool
 }
 
 export default Breweries
