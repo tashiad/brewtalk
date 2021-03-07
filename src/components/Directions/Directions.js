@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Directions.css'
 
 const Directions = ({ selectedBrewery, dadJoke }) => {
@@ -25,6 +26,11 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
       {checkForSelections()}
     </section>
   )
+}
+
+Directions.propTypes = {
+  selectedBrewery: PropTypes.object,
+  dadJoke: PropTypes.object
 }
 
 export default Directions
