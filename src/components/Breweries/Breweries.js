@@ -9,7 +9,8 @@ const Breweries = ({
   searchedWithSelected,
   getBreweries,
   selectBrewery,
-  searchValue
+  searchValue,
+  error
 }) => {
 
   const cardsToShow = searchedWithSelected.length ? searchedWithSelected : searchedBreweries
@@ -52,7 +53,8 @@ const Breweries = ({
         <Search getBreweries={getBreweries}/>
       </div>
       <div className="brewCards-container">
-        {brewCards}
+        {error && <h2>{error}</h2>}
+        {searchedBreweries && brewCards}
       </div>
     </section>
   )
@@ -63,7 +65,8 @@ Breweries.propTypes = {
   searchedWithSelected: PropTypes.array,
   getBreweries: PropTypes.func,
   selectBrewery: PropTypes.func,
-  searchValue: PropTypes.string
+  searchValue: PropTypes.string,
+  error: PropTypes.string
 }
 
 export default Breweries

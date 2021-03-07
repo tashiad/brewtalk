@@ -33,7 +33,7 @@ class App extends Component {
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
-      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
+      .catch(error => this.setState({ error: 'Unable to find breweries. Please refresh the page or try again later.' }))
   }
 
   selectBrewery = id => {
@@ -122,7 +122,8 @@ class App extends Component {
       searchValue,
       dadJoke,
       selectedBrewery,
-      favorites
+      favorites,
+      error
     } = this.state
 
     return (
@@ -141,6 +142,7 @@ class App extends Component {
                 selectBrewery={this.selectBrewery}
                 searchedWithSelected={searchedWithSelected}
                 searchValue={searchValue}
+                error={error}
               />
               <Jokes
                 getJoke={this.getJoke}

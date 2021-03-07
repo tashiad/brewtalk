@@ -8,7 +8,8 @@ const Jokes = ({
   dadJoke,
   selectJoke,
   unSelectJoke,
-  addToFavorites
+  addToFavorites,
+  error
 }) => {
 
   const checkForJoke = () => {
@@ -52,7 +53,8 @@ Jokes.propTypes = {
   dadJoke: PropTypes.object,
   selectJoke: PropTypes.func,
   unSelectJoke: PropTypes.func,
-  addToFavorites: PropTypes.func
+  addToFavorites: PropTypes.func,
+  error: PropTypes.string
 }
 
 export default Jokes
