@@ -6,8 +6,7 @@ const JokeCard = ({
   id,
   joke,
   selectedJoke,
-  selectJoke,
-  unSelectJoke,
+  toggleSelectJoke,
   addToFavorites,
   saved
 }) => {
@@ -38,7 +37,7 @@ const JokeCard = ({
             <button
               className="cardButton select button-primary"
               name="selectJoke"
-              onClick={() => selectJoke()}
+              onClick={() => toggleSelectJoke(true)}
             >
             Select
             </button>
@@ -47,7 +46,7 @@ const JokeCard = ({
             <button
               className="cardButton select button-primary"
               name="selectJoke"
-              onClick={() => unSelectJoke()}
+              onClick={() => toggleSelectJoke(false)}
             >
             Un-Select
             </button>
@@ -63,8 +62,7 @@ JokeCard.propTypes = {
   id: PropTypes.string,
   joke: PropTypes.string,
   selectedJoke: PropTypes.bool,
-  selectJoke: PropTypes.func,
-  unSelectJoke: PropTypes.func,
+  toggleSelectJoke: PropTypes.func,
   addToFavorites: PropTypes.func
 }
 

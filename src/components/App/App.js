@@ -14,27 +14,20 @@ class App extends Component {
     super()
     this.state = {
       searchedBreweries: [],
-      searchedWithSelected: [],
-      selectedBrewery: {},
+      selectedBrewery: [],
       searchValue: '',
       dadJoke: {},
       favorites: [],
       brewError: '',
       jokeError: '',
       brewLoading: false,
-      jokeLoading: false,
+      jokeLoading: false
     }
   }
 
   getBreweries = input => {
-    this.setState({
-      ...this.state,
-      searchedBreweries: [],
-      searchedWithSelected: [],
-      selectedBrewery: {},
-      searchValue: input,
-      brewLoading: true
-    })
+    this.resetBrewState()
+    this.setState({ searchValue: input, brewLoading: true })
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
@@ -42,31 +35,26 @@ class App extends Component {
       .finally(() => this.setState({ brewLoading: false }))
   }
 
-  selectBrewery = id => {
-    let i
-
-    const foundBrewery = this.state.searchedBreweries.find((brewery, index) => {
-      i = index
-      return brewery.id === id
-    })
-
-    foundBrewery.selected = true
-
-    const newArr = this.state.searchedBreweries.splice(i, 1, foundBrewery)
-    // splice isn't actually working--REFACTOR
-
+  resetBrewState = () => {
     this.setState({
-      ...this.state,
-      searchedWithSelected: newArr,
-      selectedBrewery: foundBrewery
+      searchedBreweries: [],
+      selectedBrewery: [],
+      searchValue: '',
+      brewError: '',
+      brewLoading: false,
     })
   }
 
+  selectBrewery = id => {
+    const { searchedBreweries } = this.state
+    const foundBrewery = searchedBreweries.find(brewery => brewery.id === id)
+
+    foundBrewery.selected = true
+    this.setState({ selectedBrewery: [foundBrewery] })
+  }
+
   getJoke = () => {
-    this.setState({
-      ...this.state,
-      jokeLoading: true
-    })
+    this.setState({ jokeLoading: true })
 
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
@@ -74,24 +62,11 @@ class App extends Component {
       .finally(() => this.setState({ jokeLoading: false }))
   }
 
-  selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
+  toggleSelectJoke = (bool) => {
     const newJoke = this.state.dadJoke
-    newJoke.selected = true
 
-    this.setState({
-      ...this.state,
-      dadJoke: newJoke
-    })
-  }
-
-  unSelectJoke = () => { // REFACTOR
-    const newJoke = this.state.dadJoke
-    newJoke.selected = false
-
-    this.setState({
-      ...this.state,
-      dadJoke: newJoke
-    })
+    newJoke.selected = bool
+    this.setState({ dadJoke: newJoke })
   }
 
   addToFavorites = (id) => {
@@ -99,38 +74,24 @@ class App extends Component {
 
     if (!foundFav) {
       const newJoke = this.state.dadJoke
-      newJoke.saved = true
 
-      this.setState({
-        ...this.state,
-        favorites: [...this.state.favorites, this.state.dadJoke]
-      })
+      newJoke.saved = true
+      this.setState({ favorites: [...this.state.favorites, this.state.dadJoke] })
     }
   }
 
   removeFromFavorites = (id) => {
-    let i
+    const { favorites } = this.state
+    const jokeToRemove = favorites.find(fav => fav.id === id)
+    const filteredFavs = favorites.filter(joke => joke.id !== jokeToRemove.id)
 
-    this.state.favorites.find((fav, index) => {
-      i = index
-      return fav.id === id
-    })
-
-    const newJoke = this.state.favorites[i]
-    newJoke.saved = false
-
-    const filteredFavs = this.state.favorites.filter(joke => joke.id !== id)
-
-    this.setState({
-      ...this.state,
-      favorites: filteredFavs
-    })
+    jokeToRemove.saved = false
+    this.setState({ favorites: filteredFavs })
   }
 
   render() {
     const {
       searchedBreweries,
-      searchedWithSelected,
       searchValue,
       dadJoke,
       selectedBrewery,
@@ -152,22 +113,21 @@ class App extends Component {
           render={() =>
             <main>
               <Breweries
-                getBreweries={this.getBreweries}
                 searchedBreweries={searchedBreweries}
-                selectBrewery={this.selectBrewery}
-                searchedWithSelected={searchedWithSelected}
+                selectedBrewery={selectedBrewery}
                 searchValue={searchValue}
                 brewError={brewError}
                 brewLoading={brewLoading}
+                getBreweries={this.getBreweries}
+                selectBrewery={this.selectBrewery}
               />
               <Jokes
-                getJoke={this.getJoke}
                 dadJoke={dadJoke}
-                selectJoke={this.selectJoke}
-                unSelectJoke={this.unSelectJoke}
-                addToFavorites={this.addToFavorites}
                 jokeError={jokeError}
                 jokeLoading={jokeLoading}
+                getJoke={this.getJoke}
+                toggleSelectJoke={this.toggleSelectJoke}
+                addToFavorites={this.addToFavorites}
               />
               <Directions
                 selectedBrewery={selectedBrewery}

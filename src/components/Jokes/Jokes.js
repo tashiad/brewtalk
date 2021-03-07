@@ -6,8 +6,7 @@ import JokeCard from '../JokeCard/JokeCard'
 const Jokes = ({
   getJoke,
   dadJoke,
-  selectJoke,
-  unSelectJoke,
+  toggleSelectJoke,
   addToFavorites,
   jokeError,
   jokeLoading
@@ -22,8 +21,7 @@ const Jokes = ({
           id={dadJoke.id}
           joke={dadJoke.joke}
           selectedJoke={dadJoke.selected || false}
-          selectJoke={selectJoke}
-          unSelectJoke={unSelectJoke}
+          toggleSelectJoke={toggleSelectJoke}
           addToFavorites={addToFavorites}
           saved={dadJoke.saved || false}
         />
@@ -54,10 +52,9 @@ const Jokes = ({
 Jokes.propTypes = {
   getJoke: PropTypes.func,
   dadJoke: PropTypes.object,
-  selectJoke: PropTypes.func,
-  unSelectJoke: PropTypes.func,
+  toggleSelectJoke: PropTypes.func,
   addToFavorites: PropTypes.func,
-  error: PropTypes.string,
+  jokeError: PropTypes.string,
   jokeLoading: PropTypes.bool
 }
 
