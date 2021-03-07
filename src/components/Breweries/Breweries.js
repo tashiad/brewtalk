@@ -57,7 +57,7 @@ const Breweries = ({
         {brewError && <h2>{brewError}</h2>}
         {brewLoading && <h2>Loading...</h2>}
         {searchedBreweries.length > 0 && brewCards}
-        {!searchedBreweries.length && searchValue &&
+        {!searchedBreweries.length && searchValue && !brewError &&
           <p>No breweries match your search.</p>
         }
       </div>

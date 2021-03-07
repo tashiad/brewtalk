@@ -10,6 +10,7 @@ const FavCard = ({ id, joke, removeFromFavorites }) => {
       <h4>Dad Joke</h4>
       <button
         className="cardButton save button-secondary"
+        name="remove"
         onClick={() => removeFromFavorites(id)}
       >
       Remove

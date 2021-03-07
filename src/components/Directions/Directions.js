@@ -5,7 +5,7 @@ import './Directions.css'
 const Directions = ({ selectedBrewery, dadJoke }) => {
   const checkForSelections = () => {
     if (selectedBrewery.selected && dadJoke.selected) {
-      return 'Cheers! You\'re officially ready to be social.'
+      return <p>Cheers! You're officially ready to be social.</p>
     } else {
       return null
     }
