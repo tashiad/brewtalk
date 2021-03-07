@@ -69,6 +69,33 @@ describe('Homepage: Step 1', () => {
       .get('article:first').contains('button', 'Un-Select').click()
       .get('article:first').get('.selectedCard').should('not.exist')
   })
+
+  it('Should display an error message when the server returns a 400 error', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {statusCode: 404})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('.brewCards-container')
+      .should('have.text', 'Unable to find breweries. Please refresh the page or try again later.')
+  })
+
+  it('Should display an error message when the server returns a 500 error', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {statusCode: 500})
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('.brewCards-container')
+      .should('have.text', 'Unable to find breweries. Please refresh the page or try again later.')
+  })
+
+  it('Should display an message if the search input returns nothing from the breweries API', () => {
+    cy
+      .intercept('https://api.openbrewerydb.org/breweries/search?query=dsvkbhaj')
+      .visit(baseUrl)
+      .get('input[class="searchBox"]').type('dsvkbhaj').type('{enter}')
+      .get('.brewCards-container')
+      .should('have.text', 'No breweries match your search.')
+  })
 })
 
 describe('Homepage: Step 2', () => {
@@ -109,6 +136,18 @@ describe('Homepage: Step 2', () => {
       .get('article[class="selectedJoke"]')
       .get('button[name="selectJoke"]').should('have.text', 'Un-Select').click()
       .get('article[class="selectedJoke"]').should('not.exist')
+  })
+
+  it.skip('Should display an error message when the server returns a 400 error', () => {
+    cy.intercept('GET', statesAPI, { statusCode: 404 })
+      .visit(baseUrl)
+      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
+  })
+
+  it.skip('Should display an error message when the server returns a 500 error', () => {
+    cy.intercept('GET', statesAPI, { statusCode: 500 })
+      .visit(baseUrl)
+      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
   })
 })
 
