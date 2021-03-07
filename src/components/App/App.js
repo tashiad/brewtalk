@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import './App.css'
 import Nav from '../Nav/Nav'
 import Header from '../Header/Header'
@@ -6,7 +7,7 @@ import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
 import Favorites from '../Favorites/Favorites'
-import { Route } from 'react-router-dom'
+import { fetchBreweries, fetchJoke } from '../../apiCalls'
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,8 @@ class App extends Component {
       selectedBrewery: {},
       searchValue: '',
       dadJoke: {},
-      favorites: []
+      favorites: [],
+      error: ''
     }
   }
 
@@ -29,10 +31,9 @@ class App extends Component {
       searchValue: input
     })
 
-    fetch(`https://api.openbrewerydb.org/breweries/search?query=${input}`)
-      .then(response => response.json())
+    fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
   }
 
   selectBrewery = id => {
@@ -56,16 +57,9 @@ class App extends Component {
   }
 
   getJoke = () => {
-    fetch('https://icanhazdadjoke.com/', {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "User-Agent": "BrewTalk (https://github.com/tashiad/brewtalk)"
-      }
-    })
-    .then(response => response.json())
-    .then(joke => this.setState({ dadJoke: joke }))
-    .catch(error => console.log(error))
+    fetchJoke()
+      .then(joke => this.setState({ dadJoke: joke }))
+      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
   }
 
   selectJoke = () => {
