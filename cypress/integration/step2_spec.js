@@ -49,7 +49,7 @@ describe('Homepage: Step 2', () => {
       .should('contain', 'Unable to find a dad joke. Please refresh the page or try again later.')
   })
 
-  it.only('Should display an error message when the server returns a 500 error', () => {
+  it('Should display an error message when the server returns a 500 error', () => {
     cy
       .intercept('https://icanhazdadjoke.com/', {statusCode: 500})
       .visit(baseUrl)
