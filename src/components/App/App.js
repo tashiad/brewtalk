@@ -84,22 +84,12 @@ class App extends Component {
   }
 
   removeFromFavorites = (id) => {
-    let i
+    const { favorites } = this.state
+    const jokeToRemove = favorites.find(fav => fav.id === id)
+    const filteredFavs = favorites.filter(joke => joke.id !== jokeToRemove.id)
 
-    this.state.favorites.find((fav, index) => {
-      i = index
-      return fav.id === id
-    })
-
-    const newJoke = this.state.favorites[i]
-    newJoke.saved = false
-
-    const filteredFavs = this.state.favorites.filter(joke => joke.id !== id)
-
-    this.setState({
-      ...this.state,
-      favorites: filteredFavs
-    })
+    jokeToRemove.saved = false
+    this.setState({ favorites: filteredFavs })
   }
 
   render() {
