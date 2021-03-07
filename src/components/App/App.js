@@ -19,21 +19,27 @@ class App extends Component {
       searchValue: '',
       dadJoke: {},
       favorites: [],
-      error: ''
+      brewError: '',
+      jokeError: '',
+      brewLoading: false,
+      jokeLoading: false,
     }
   }
 
   getBreweries = input => {
     this.setState({
+      ...this.state,
       searchedBreweries: [],
       searchedWithSelected: [],
       selectedBrewery: {},
-      searchValue: input
+      searchValue: input,
+      brewLoading: true
     })
 
     fetchBreweries(input)
       .then(breweries => this.setState({ searchedBreweries: breweries }))
-      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
+      .catch(error => this.setState({ brewError: 'Unable to find breweries. Please refresh the page or try again later.' }))
+      .finally(() => this.setState({ brewLoading: false }))
   }
 
   selectBrewery = id => {
@@ -57,9 +63,15 @@ class App extends Component {
   }
 
   getJoke = () => {
+    this.setState({
+      ...this.state,
+      jokeLoading: true
+    })
+
     fetchJoke()
       .then(joke => this.setState({ dadJoke: joke }))
-      .catch(error => this.setState({ error: `${error.name}: ${error.message}` }))
+      .catch(error => this.setState({ jokeError: 'Unable to find a dad joke. Please refresh the page or try again later.' }))
+      .finally(() => this.setState({ jokeLoading: false }))
   }
 
   selectJoke = () => { // REFACTOR WITH UNSELECTJOKE
@@ -86,22 +98,49 @@ class App extends Component {
     const foundFav = this.state.favorites.find(fav => fav.id === id)
 
     if (!foundFav) {
+      const newJoke = this.state.dadJoke
+      newJoke.saved = true
+
       this.setState({
         ...this.state,
         favorites: [...this.state.favorites, this.state.dadJoke]
       })
-    } else {
-      window.alert('You already saved this to your favorites!')
     }
   }
 
   removeFromFavorites = (id) => {
+    let i
+
+    this.state.favorites.find((fav, index) => {
+      i = index
+      return fav.id === id
+    })
+
+    const newJoke = this.state.favorites[i]
+    newJoke.saved = false
+
     const filteredFavs = this.state.favorites.filter(joke => joke.id !== id)
 
-    this.setState({ favorites: filteredFavs })
+    this.setState({
+      ...this.state,
+      favorites: filteredFavs
+    })
   }
 
   render() {
+    const {
+      searchedBreweries,
+      searchedWithSelected,
+      searchValue,
+      dadJoke,
+      selectedBrewery,
+      favorites,
+      brewError,
+      jokeError,
+      brewLoading,
+      jokeLoading
+    } = this.state
+
     return (
       <>
         <Nav />
@@ -114,21 +153,25 @@ class App extends Component {
             <main>
               <Breweries
                 getBreweries={this.getBreweries}
-                searchedBreweries={this.state.searchedBreweries}
+                searchedBreweries={searchedBreweries}
                 selectBrewery={this.selectBrewery}
-                searchedWithSelected={this.state.searchedWithSelected}
-                searchValue={this.state.searchValue}
+                searchedWithSelected={searchedWithSelected}
+                searchValue={searchValue}
+                brewError={brewError}
+                brewLoading={brewLoading}
               />
               <Jokes
                 getJoke={this.getJoke}
-                dadJoke={this.state.dadJoke}
+                dadJoke={dadJoke}
                 selectJoke={this.selectJoke}
                 unSelectJoke={this.unSelectJoke}
                 addToFavorites={this.addToFavorites}
+                jokeError={jokeError}
+                jokeLoading={jokeLoading}
               />
               <Directions
-                selectedBrewery={this.state.selectedBrewery}
-                dadJoke={this.state.dadJoke}
+                selectedBrewery={selectedBrewery}
+                dadJoke={dadJoke}
               />
             </main>
           }
@@ -138,7 +181,7 @@ class App extends Component {
           path="/favorites"
           render={() =>
             <Favorites
-              favorites={this.state.favorites}
+              favorites={favorites}
               removeFromFavorites={this.removeFromFavorites}
             />
           }

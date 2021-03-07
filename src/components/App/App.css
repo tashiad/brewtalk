@@ -34,6 +34,14 @@ button:hover {
   color: orange;
 }
 
+.disabled {
+  background-color: gray;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
 /* SECTION STYLES */
 section {
   width: 30%;

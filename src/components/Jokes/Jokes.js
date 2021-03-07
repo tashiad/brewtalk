@@ -8,7 +8,9 @@ const Jokes = ({
   dadJoke,
   selectJoke,
   unSelectJoke,
-  addToFavorites
+  addToFavorites,
+  jokeError,
+  jokeLoading
 }) => {
 
   const checkForJoke = () => {
@@ -23,6 +25,7 @@ const Jokes = ({
           selectJoke={selectJoke}
           unSelectJoke={unSelectJoke}
           addToFavorites={addToFavorites}
+          saved={dadJoke.saved || false}
         />
       )
     }
@@ -41,6 +44,8 @@ const Jokes = ({
         Generate a random dad joke
         </button>
       </div>
+      {jokeError && <h2>{jokeError}</h2>}
+      {jokeLoading && <h2>Loading...</h2>}
       {checkForJoke()}
     </section>
   )
@@ -51,7 +56,9 @@ Jokes.propTypes = {
   dadJoke: PropTypes.object,
   selectJoke: PropTypes.func,
   unSelectJoke: PropTypes.func,
-  addToFavorites: PropTypes.func
+  addToFavorites: PropTypes.func,
+  error: PropTypes.string,
+  jokeLoading: PropTypes.bool
 }
 
 export default Jokes

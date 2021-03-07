@@ -54,10 +54,12 @@ const BreweryCard = ({
       }
       <div className="cardContents">
         <h3>{name}</h3>
-        <p><span className="typeTag">{brewery_type}</span></p>
-        <p>{`${street}, ${city}, ${state}`}</p>
-        <p>{formatPhone(phone)}</p>
-        <a href={website_url} target="_blank" rel="noreferrer">Website</a>
+        {brewery_type && <p><span className="typeTag">{brewery_type}</span></p>}
+        {!street && <p>{`${city}, ${state}`}</p>}
+        {!street && !city && <p>{state}</p>}
+        {street && city && state && <p>{`${street}, ${city}, ${state}`}</p>}
+        {phone && <p>{formatPhone(phone)}</p>}
+        {website_url && <a href={website_url} target="_blank" rel="noreferrer">Website</a>}
         <p className="timestamp">Last updated: {formatTimestamp(updated_at)}</p>
       </div>
     </article>
