@@ -59,5 +59,7 @@ describe('Favorites Page', () => {
       .get('li').eq(1).click()
       .get('button[name="remove"]').click()
       .get('p').should('have.text', 'No favorites yet. Go back to add some!')
+      .get('li').eq(0).click()
+      .get('button[name="saveJoke"]').should('have.text', 'Save')
   })
 })
