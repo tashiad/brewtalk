@@ -40,15 +40,21 @@ describe('Homepage: Step 2', () => {
       .get('article[class="selectedJoke"]').should('not.exist')
   })
 
-  it.skip('Should display an error message when the server returns a 400 error', () => {
-    cy.intercept('GET', statesAPI, { statusCode: 404 })
+  it('Should display an error message when the server returns a 400 error', () => {
+    cy
+      .intercept('https://icanhazdadjoke.com/', {statusCode: 400})
       .visit(baseUrl)
-      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
+      .get('button[name="joke"]').click()
+      .get('section').eq(1)
+      .should('contain', 'Unable to find a dad joke. Please refresh the page or try again later.')
   })
 
-  it.skip('Should display an error message when the server returns a 500 error', () => {
-    cy.intercept('GET', statesAPI, { statusCode: 500 })
+  it.only('Should display an error message when the server returns a 500 error', () => {
+    cy
+      .intercept('https://icanhazdadjoke.com/', {statusCode: 500})
       .visit(baseUrl)
-      .get('.error-message').should('have.text', 'Please wait a minute and refresh the page. Something went wrong with the server.')
+      .get('button[name="joke"]').click()
+      .get('section').eq(1)
+      .should('contain', 'Unable to find a dad joke. Please refresh the page or try again later.')
   })
 })
