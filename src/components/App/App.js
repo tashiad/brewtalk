@@ -74,12 +74,9 @@ class App extends Component {
 
     if (!foundFav) {
       const newJoke = this.state.dadJoke
-      newJoke.saved = true
 
-      this.setState({
-        ...this.state,
-        favorites: [...this.state.favorites, this.state.dadJoke]
-      })
+      newJoke.saved = true
+      this.setState({ favorites: [...this.state.favorites, this.state.dadJoke] })
     }
   }
 
