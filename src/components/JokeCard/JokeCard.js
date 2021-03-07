@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './JokeCard.css'
 
 const JokeCard = ({
@@ -42,6 +43,15 @@ const JokeCard = ({
       <p className="cardContents">{joke}</p>
     </article>
   )
+}
+
+JokeCard.propTypes = {
+  id: PropTypes.string,
+  joke: PropTypes.string,
+  selectedJoke: PropTypes.bool,
+  selectJoke: PropTypes.func,
+  unSelectJoke: PropTypes.func,
+  addToFavorites: PropTypes.func
 }
 
 export default JokeCard

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
@@ -43,6 +44,14 @@ const Jokes = ({
       {checkForJoke()}
     </section>
   )
+}
+
+Jokes.propTypes = {
+  getJoke: PropTypes.func,
+  dadJoke: PropTypes.object,
+  selectJoke: PropTypes.func,
+  unSelectJoke: PropTypes.func,
+  addToFavorites: PropTypes.func
 }
 
 export default Jokes

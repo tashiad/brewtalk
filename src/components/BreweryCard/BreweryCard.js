@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './BreweryCard.css'
 
 const BreweryCard = ({
@@ -61,6 +62,22 @@ const BreweryCard = ({
       </div>
     </article>
   )
+}
+
+BreweryCard.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  brewery_type: PropTypes.string,
+  street: PropTypes.string,
+  city: PropTypes.string,
+  state: PropTypes.string,
+  phone: PropTypes.string,
+  website_url: PropTypes.string,
+  updated_at: PropTypes.string,
+  selectBrewery: PropTypes.func,
+  selectedBrewery: PropTypes.bool,
+  getBreweries: PropTypes.func,
+  searchValue: PropTypes.string
 }
 
 export default BreweryCard

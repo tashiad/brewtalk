@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Favorites.css'
 import FavCard from '../FavCard/FavCard'
 
@@ -26,6 +27,11 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
       {checkForFavs()}
     </section>
   )
+}
+
+Favorites.propTypes = {
+  favorites: PropTypes.array,
+  removeFromFavorites: PropTypes.func
 }
 
 export default Favorites
