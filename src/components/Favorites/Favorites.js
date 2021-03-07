@@ -17,13 +17,15 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
         )
       })
     } else {
-      return null
+      return (
+        <p>No favorites yet. Go back to add some!</p>
+      )
     }
   }
 
   return (
     <section>
-      <h2>Favorites Page</h2>
+      <h2>Your Saved Dad Jokes</h2>
       {checkForFavs()}
     </section>
   )
