@@ -35,6 +35,7 @@ const JokeCard = ({
           {!selectedJoke &&
             <button
               className="cardButton select button-primary"
+              name="selectJoke"
               onClick={() => selectJoke()}
             >
             Select
@@ -43,6 +44,7 @@ const JokeCard = ({
           {selectedJoke &&
             <button
               className="cardButton select button-primary"
+              name="selectJoke"
               onClick={() => unSelectJoke()}
             >
             Un-Select
