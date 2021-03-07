@@ -54,7 +54,10 @@ const Breweries = ({
       </div>
       <div className="brewCards-container">
         {brewError && <h2>{brewError}</h2>}
-        {searchedBreweries && brewCards}
+        {searchedBreweries.length > 0 && brewCards}
+        {!searchedBreweries.length && searchValue &&
+          <p>No breweries match your search.</p>
+        }
       </div>
     </section>
   )
