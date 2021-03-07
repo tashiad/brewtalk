@@ -93,7 +93,7 @@ class App extends Component {
         ...this.state,
         favorites: [...this.state.favorites, this.state.dadJoke]
       })
-    } 
+    }
   }
 
   removeFromFavorites = (id) => {
@@ -116,6 +116,15 @@ class App extends Component {
   }
 
   render() {
+    const {
+      searchedBreweries,
+      searchedWithSelected,
+      searchValue,
+      dadJoke,
+      selectedBrewery,
+      favorites
+    } = this.state
+
     return (
       <>
         <Nav />
@@ -128,21 +137,21 @@ class App extends Component {
             <main>
               <Breweries
                 getBreweries={this.getBreweries}
-                searchedBreweries={this.state.searchedBreweries}
+                searchedBreweries={searchedBreweries}
                 selectBrewery={this.selectBrewery}
-                searchedWithSelected={this.state.searchedWithSelected}
-                searchValue={this.state.searchValue}
+                searchedWithSelected={searchedWithSelected}
+                searchValue={searchValue}
               />
               <Jokes
                 getJoke={this.getJoke}
-                dadJoke={this.state.dadJoke}
+                dadJoke={dadJoke}
                 selectJoke={this.selectJoke}
                 unSelectJoke={this.unSelectJoke}
                 addToFavorites={this.addToFavorites}
               />
               <Directions
-                selectedBrewery={this.state.selectedBrewery}
-                dadJoke={this.state.dadJoke}
+                selectedBrewery={selectedBrewery}
+                dadJoke={dadJoke}
               />
             </main>
           }
@@ -152,7 +161,7 @@ class App extends Component {
           path="/favorites"
           render={() =>
             <Favorites
-              favorites={this.state.favorites}
+              favorites={favorites}
               removeFromFavorites={this.removeFromFavorites}
             />
           }
