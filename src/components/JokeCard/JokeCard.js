@@ -20,6 +20,7 @@ const JokeCard = ({
           {!saved &&
             <button
               className="cardButton save button-secondary"
+              name="saveJoke"
               onClick={() => addToFavorites(id)}
             >
             Save
@@ -28,6 +29,7 @@ const JokeCard = ({
           {saved &&
             <button
               className="cardButton save button-secondary disabled"
+              name="saveJoke"
             >
             Saved
             </button>
