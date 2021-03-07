@@ -4,7 +4,7 @@ export const fetchBreweries = (input) => {
 }
 
 export const fetchJoke = () => {
-  return fetch('https://icanhazdad.com/', {
+  return fetch('https://icanhazdadjoke.com/', {
     method: "GET",
     headers: {
       Accept: "application/json",

@@ -9,7 +9,7 @@ const Jokes = ({
   selectJoke,
   unSelectJoke,
   addToFavorites,
-  error
+  jokeError
 }) => {
 
   const checkForJoke = () => {
@@ -43,7 +43,7 @@ const Jokes = ({
         Generate a random dad joke
         </button>
       </div>
-      {error && <h2>{error}</h2>}
+      {jokeError && <h2>{jokeError}</h2>}
       {checkForJoke()}
     </section>
   )

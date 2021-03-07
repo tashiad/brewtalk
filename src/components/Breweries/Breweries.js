@@ -10,7 +10,7 @@ const Breweries = ({
   getBreweries,
   selectBrewery,
   searchValue,
-  error
+  brewError
 }) => {
 
   const cardsToShow = searchedWithSelected.length ? searchedWithSelected : searchedBreweries
@@ -53,7 +53,7 @@ const Breweries = ({
         <Search getBreweries={getBreweries}/>
       </div>
       <div className="brewCards-container">
-        {error && <h2>{error}</h2>}
+        {brewError && <h2>{brewError}</h2>}
         {searchedBreweries && brewCards}
       </div>
     </section>
