@@ -54,7 +54,7 @@ Jokes.propTypes = {
   dadJoke: PropTypes.object,
   toggleSelectJoke: PropTypes.func,
   addToFavorites: PropTypes.func,
-  error: PropTypes.string,
+  jokeError: PropTypes.string,
   jokeLoading: PropTypes.bool
 }
 
