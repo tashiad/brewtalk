@@ -1,16 +1,21 @@
-ul {
+nav ul {
   display: flex;
-  justify-content: space-around;
-  float: right;
-  /* width: 15%; */
+  justify-content: flex-end;
+  margin: 0;
 }
 
-li {
-  list-style-type: none;
-  padding: 0 10%;
+nav a {
+	margin: 0 1%;
 }
 
-li:hover {
-  cursor: pointer;
-  text-decoration: underline;
+nav li {
+  list-style: none;
+  color: #333533;
+  font-weight: bolder;
+  padding: 3px;
+  width: 100%;
+}
+
+nav li:hover {
+  background-color: #f5cb5c;
 }

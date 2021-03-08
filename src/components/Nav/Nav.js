@@ -1,17 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Nav.css'
 
 const Nav = () => {
   return (
     <nav>
       <ul>
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <NavLink
+          exact to="/"
+          style={{ textDecoration: 'none' }}
+          activeStyle={{ textDecoration: 'underline' }}
+        >
           <li>Home</li>
-        </Link>
-        <Link to="/favorites" style={{ textDecoration: 'none' }}>
-          <li>Favorites</li>
-        </Link>
+        </NavLink>
+        <NavLink
+          to="/favorites"
+          style={{ textDecoration: 'none' }}
+          activeStyle={{ textDecoration: 'underline' }}
+        >
+          <li>Saved Jokes</li>
+        </NavLink>
       </ul>
     </nav>
   )
