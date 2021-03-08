@@ -24,7 +24,7 @@ const Jokes = ({ getJoke, dadJoke, addToFavorites, jokeError, jokeLoading }) => 
     <section>
       <div className="section-top">
         <p className="number">2</p>
-        <label className="step" htmlFor="joke">Select a dad joke:</label>
+        <label className="step" htmlFor="joke">Find a good dad joke:</label>
         <button
           className="button-top button-secondary"
           name="joke"

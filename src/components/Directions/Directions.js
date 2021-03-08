@@ -35,7 +35,7 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
         <div className="placeholder">👍</div> : null
       }
       {selectedBrewery.length > 0 && dadJoke.saved &&
-        <p>Cheers! You're officially ready to be social.</p>
+        <p>🎉 Cheers! You're officially ready to be social.</p>
       }
     </section>
   )

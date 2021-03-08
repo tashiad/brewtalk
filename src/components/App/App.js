@@ -121,7 +121,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={() =>
-            <main>
+            <main className="stepsContainer">
               <Breweries
                 searchedBreweries={searchedBreweries}
                 selectedBrewery={selectedBrewery}

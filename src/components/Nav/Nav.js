@@ -6,6 +6,7 @@ const Nav = () => {
   return (
     <nav>
       <ul>
+
         <NavLink
           exact to="/"
           style={{ textDecoration: 'none' }}
@@ -13,6 +14,7 @@ const Nav = () => {
         >
           <li>Home</li>
         </NavLink>
+
         <NavLink
           to="/about"
           style={{ textDecoration: 'none' }}
@@ -20,6 +22,7 @@ const Nav = () => {
         >
           <li>About</li>
         </NavLink>
+
         <NavLink
           to="/favorites"
           style={{ textDecoration: 'none' }}
@@ -27,6 +30,7 @@ const Nav = () => {
         >
           <li>Saved Jokes</li>
         </NavLink>
+
       </ul>
     </nav>
   )
