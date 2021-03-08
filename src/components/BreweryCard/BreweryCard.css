@@ -1,5 +1,10 @@
-.brewButton {
+.brewery-name {
+  margin-top: 5%;
+}
+
+.button-brewery {
   margin: 5%;
+  float: right;
 }
 
 .timestamp {
@@ -8,13 +13,9 @@
   font-style: italic;
 }
 
-@media screen and (max-width: 768px) {
-  .brewCard {
+@media screen and (max-width: 800px) {
+  .card-brewery {
     display: flex;
     flex-direction: column;
-  }
-
-  .brewButton {
-    float: right;
   }
 }

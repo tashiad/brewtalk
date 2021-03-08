@@ -7,7 +7,7 @@ const JokeCard = ({ id, joke, addToSaved, saved }) => {
     <article className={saved ? 'selectedCard' : null}>
       <div className="jokeTop">
         <h4>Dad Joke</h4>
-        <div className="jokeButtons">
+        <div>
           {!saved ?
             <button
               className="button-primary button-card"
