@@ -61,7 +61,7 @@ const Breweries = ({
       }
       {!searchedBreweries.length && <div className="placeholder">🍻</div>}
       {searchedBreweries.length > 0 &&
-        <div className="brewCards">
+        <div className="breweries-container">
           {brewCards}
         </div>
       }

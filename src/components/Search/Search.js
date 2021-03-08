@@ -25,15 +25,15 @@ class Search extends Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <div className="searchBar">
+          <div className="seaarch-bar">
             <img
-              className="searchIcon"
+              className="search-icon"
               src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"
               alt="Search icon"
             />
             <label htmlFor="search">Select a brewery:</label>
             <input
-              className="searchBox"
+              className="search-box"
               id="search"
               type="search"
               name="search"

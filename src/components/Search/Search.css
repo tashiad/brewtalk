@@ -10,7 +10,7 @@ label {
   clip-path: inset(1px);
 }
 
-.searchBar {
+.seaarch-bar {
   display: grid;
   grid-template-columns: 1.5rem 4fr 1fr;
   margin-bottom: 10%;
@@ -20,26 +20,26 @@ label {
   background-color: white;
 }
 
-.searchBar:focus-within img {
+.seaarch-bar:focus-within img {
   display: none;
 }
 
-.searchBar:focus-within .searchBox {
+.seaarch-bar:focus-within .search-box {
   grid-column: 1/4;
 }
 
-.searchBar:focus-within .searchBox::placeholder {
+.seaarch-bar:focus-within .search-box::placeholder {
   color: transparent;
 }
 
-.searchIcon {
+.search-icon {
   padding: 0.5rem;
   grid-row: 1;
   grid-column: 1/2;
   z-index: 2;
 }
 
-.searchBox {
+.search-box {
   border: 0;
   padding: 0.5rem;
   grid-column: 2/4;

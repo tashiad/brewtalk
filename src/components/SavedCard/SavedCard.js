@@ -15,7 +15,7 @@ const SavedCard = ({ id, joke, removeFromSaved }) => {
         Remove
         </button>
       </div>
-      <p className="cardContents">{joke}</p>
+      <p className="card-contents">{joke}</p>
     </article>
   )
 }

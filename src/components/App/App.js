@@ -84,7 +84,7 @@ class App extends Component {
     const filteredSaved = savedJokes.filter(joke => joke.id !== jokeToRemove.id)
 
     jokeToRemove.saved = false
-    
+
     this.setState({ savedJokes: filteredSaved })
     this.updateLocalStorage(filteredSaved)
   }
@@ -122,7 +122,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={() =>
-            <main className="stepsContainer">
+            <main className="steps-container">
               <Breweries
                 searchedBreweries={searchedBreweries}
                 selectedBrewery={selectedBrewery}

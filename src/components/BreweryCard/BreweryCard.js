@@ -35,7 +35,7 @@ const BreweryCard = ({
   })
 
   return (
-    <article className={selectedBrewery ? "card-brewery selectedCard" : "card-brewery"}>
+    <article className={selectedBrewery ? "brewery-card selected-card" : "brewery-card"}>
       <div className="button-brewery">
         {!selectedBrewery ?
           <button
@@ -53,7 +53,7 @@ const BreweryCard = ({
           </button>
         }
       </div>
-      <div className="cardContents">
+      <div className="card-contents">
         <h3 className="brewery-name">{name}</h3>
         {!street && <p>{`${city}, ${state}`}</p>}
         {!street && !city && <p>{state}</p>}
