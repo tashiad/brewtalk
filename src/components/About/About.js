@@ -11,7 +11,7 @@ const About = () => {
       <hr/>
       <h2>How It Works</h2>
       <h3>🍻 Step 1</h3>
-      <p>Search for a brewery directly by name or browse breweries by city. Click "Select" to commit to going to that brewery, which will allow you to get directions to it in Step 3. If you're afraid of committment (or if you simply change your mind), you can unselect the brewery to go back to the search results, or start a new search.</p>
+      <p>Search for a brewery directly by name or browse breweries by city. Click "Select" to commit to going to that brewery, which will allow you to get directions to it in Step 3. If you're afraid of commitment (or if you simply change your mind), you can unselect the brewery to go back to the search results, or start a new search.</p>
       <h3>🧔 Step 2</h3>
       <p>Click the "Generate dad joke" button to generate a random dad joke. If you like it, you can click save to add it to your saved jokes. If you want to find another dad joke, simply click the "Generate dad joke" button again. You can visit the Saved Jokes page to view all your saved dad jokes and remove them if they didn't hit right with your audience.</p>
       <h3>👍 Step 3</h3>
