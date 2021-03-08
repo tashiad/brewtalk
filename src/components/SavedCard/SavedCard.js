@@ -7,7 +7,7 @@ const SavedCard = ({ id, joke, removeFromSaved }) => {
   return (
     <article className="saved-joke">
       <div className="jokeTop">
-        <h4>Dad Joke</h4>
+        <h3 className="saved-h3">Dad Joke</h3>
         <button
           className="button-secondary"
           name="remove"

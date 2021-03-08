@@ -15,14 +15,15 @@ nav a {
 
 nav li {
   list-style: none;
-  color: #333533;
-  font-weight: bolder;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
   padding: 3px;
   width: 100%;
 }
 
 nav li:hover {
-  background-color: #f5cb5c;
+  color: #333533;
 }
 
 @media screen and (max-width: 768px) {

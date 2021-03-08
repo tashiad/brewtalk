@@ -6,8 +6,8 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
   return (
     <section className="steps-section">
       <div className="section-top">
-        <p className="number">3</p>
-        <label className="step" htmlFor="directions">Head out:</label>
+        <h2 className="number">3</h2>
+        <h3>Head out:</h3>
         {selectedBrewery.length > 0 ?
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${selectedBrewery[0].name}`}

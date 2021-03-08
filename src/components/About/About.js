@@ -20,7 +20,7 @@ const About = () => {
       <p><em>This site was created by Tashia Davis, a self-identified introverted craft beer-lover who grew up in the brewery mecca of Bend, Oregon (and loves a good dad joke).</em></p>
       <p><em>If you enjoyed it, you can:</em></p>
       <ul>
-        <li>View the code <a href="https://github.com/tashiad/brewtalk" target="_blank" rel="noreferrer">here.</a></li>
+        <li>View the <a href="https://github.com/tashiad/brewtalk" target="_blank" rel="noreferrer">repo.</a></li>
         <li>View more of her work on <a href="https://github.com/tashiad" target="_blank" rel="noreferrer">GitHub.</a></li>
       </ul>
     </main>
