@@ -14,7 +14,7 @@ const Jokes = ({
 
   const checkForJoke = () => {
     if (Object.keys(dadJoke).length === 0) {
-      return null
+      return <div className="placeholder">🧔</div>
     } else {
       return (
         <JokeCard

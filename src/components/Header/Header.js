@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <div className="header-text">
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <h1>🍻 BrewTalk</h1>
+          <h1>BrewTalk</h1>
         </Link>
         <h2>Breweries + dad jokes for the introverted.</h2>
       </div>

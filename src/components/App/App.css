@@ -5,7 +5,6 @@ yellow: #f5cb5c
 eggshell: #e8eddf
 */
 
-
 main {
   display: flex;
   justify-content: space-evenly;
@@ -94,6 +93,11 @@ label {
 
 .loading {
   color: #C04800;
+}
+
+.placeholder {
+  text-align: center;
+  font-size: 5rem;
 }
 
 /* CARD STYLES */
