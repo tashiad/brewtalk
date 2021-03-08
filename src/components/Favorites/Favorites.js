@@ -24,10 +24,10 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
   }
 
   return (
-    <section>
+    <main>
       <h2>Your Saved Dad Jokes</h2>
       {checkForFavs()}
-    </section>
+    </main>
   )
 }
 

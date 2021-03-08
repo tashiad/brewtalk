@@ -6,6 +6,7 @@ import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
 import Favorites from '../Favorites/Favorites'
+import About from '../About/About'
 import { fetchBreweries, fetchJoke } from '../../apiCalls'
 
 class App extends Component {
@@ -120,7 +121,7 @@ class App extends Component {
         <Route
           exact path="/"
           render={() =>
-            <main>
+            <main className="stepsContainer">
               <Breweries
                 searchedBreweries={searchedBreweries}
                 selectedBrewery={selectedBrewery}
@@ -144,6 +145,8 @@ class App extends Component {
             </main>
           }
         />
+
+        <Route path="/about" render={() => <About/>} />
 
         <Route
           path="/favorites"
