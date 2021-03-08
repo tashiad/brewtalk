@@ -25,7 +25,7 @@ class Search extends Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <div className="seaarch-bar">
+          <div className="search-bar">
             <img
               className="search-icon"
               src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"

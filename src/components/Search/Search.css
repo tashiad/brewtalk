@@ -10,7 +10,7 @@ label {
   clip-path: inset(1px);
 }
 
-.seaarch-bar {
+.search-bar {
   display: grid;
   grid-template-columns: 1.5rem 4fr 1fr;
   margin-bottom: 10%;
@@ -20,15 +20,15 @@ label {
   background-color: white;
 }
 
-.seaarch-bar:focus-within img {
+.search-bar:focus-within img {
   display: none;
 }
 
-.seaarch-bar:focus-within .search-box {
+.search-bar:focus-within .search-box {
   grid-column: 1/4;
 }
 
-.seaarch-bar:focus-within .search-box::placeholder {
+.search-bar:focus-within .search-box::placeholder {
   color: transparent;
 }
 
