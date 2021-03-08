@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
-import Nav from '../Nav/Nav'
 import Header from '../Header/Header'
 import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
@@ -104,9 +103,7 @@ class App extends Component {
 
     return (
       <>
-        <Nav />
         <Header />
-        <hr/>
 
         <Route
           exact path="/"

@@ -1,26 +1,3 @@
-/* BEER COLORS:
-amber: #C04800
-dark orange: #D86000
-pumpkin: #D87800
-hops orange: #F79400
-*/
-
-/* HOPS COLORS:
-dark: #3A400F
-mid-dark: #6F7302
-mid: #7C8C03
-lighter: #A3A651
-lightest: #BFBB84
-*/
-
-/* MUTED:
-yellow: #f5cb5c
-eggshell: #e8eddf
-blueish: #cfdbd5
-dark grey #333533
-black ish: #242423
-*/
-
 /* TOP COLORS:
 dark gray: #333533
 pumpkin: #D87800
@@ -33,7 +10,7 @@ main {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: 3% 0;
+  margin: 0 3% 5% 3%;
 }
 
 h1 {

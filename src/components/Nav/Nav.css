@@ -1,3 +1,7 @@
+nav {
+  width: 33%;
+}
+
 nav ul {
   display: flex;
   justify-content: flex-end;

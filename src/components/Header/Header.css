@@ -1,3 +1,11 @@
 header {
-  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3%;
+  padding: 3% 5% 2% 5%;
+  background-color: #D87800;
+}
+
+.header-text {
+  width: 66%;
 }
