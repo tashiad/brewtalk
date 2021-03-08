@@ -5,7 +5,7 @@ describe('Homepage: Step 3', () => {
     cy
       .visit(baseUrl)
       .get('.number').eq(2).should('have.text', '3')
-      .get('label').eq(2).should('have.text', 'Head out:')
+      .get('.steps-section').eq(2).should('contain', 'Head out:')
       .get('button[name="directions"]').should('have.text', 'Get Directions')
   })
 
@@ -22,20 +22,20 @@ describe('Homepage: Step 3', () => {
       .visit(baseUrl)
       .get('button[class="button-top disabled"]').click()
       .url().should('include', baseUrl)
-      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('input[class="search-box"]').type('Bend').type('{enter}')
       .get('article:first').contains('button', 'Select').click()
       .get('button[class="button-top disabled"]').should('not.exist')
   })
 
-  it('Should display a message if both a brewery and a joke have been selected', () => {
+  it('Should display a message if a brewery has been selected and a joke has been saved', () => {
     cy
       .intercept('https://api.openbrewerydb.org/breweries/search?query=Bend', {fixture: 'breweries-city-fixture.json'})
       .intercept('https://icanhazdadjoke.com/', {fixture: 'jokes-fixture.json'})
       .visit(baseUrl)
-      .get('input[class="searchBox"]').type('Bend').type('{enter}')
+      .get('input[class="search-box"]').type('Bend').type('{enter}')
       .get('article:first').contains('button', 'Select').click()
-      .get('button[name="joke"]').click()
-      .get('button[name="selectJoke"]').click()
+      .get('button[name="getJoke"]').click()
+      .get('button[name="saveJoke"]').click()
       .get('p').should('contain', 'Cheers! You\'re officially ready to be social.')
   })
 })
