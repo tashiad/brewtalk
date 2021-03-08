@@ -9,7 +9,7 @@ const SavedCard = ({ id, joke, removeFromSaved }) => {
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <button
-          className="cardButton save button-secondary"
+          className="button-secondary"
           name="remove"
           onClick={() => removeFromSaved(id)}
         >

@@ -8,14 +8,3 @@ h4 {
   align-items: center;
   margin: 5%;
 }
-
-.jokeButtons {
-  display: flex;
-  justify-content: flex-end;
-  width: 70%;
-}
-
-.save {
-  padding: 0 5%;
-  margin-right: 5%;
-}

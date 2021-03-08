@@ -10,7 +10,7 @@ const JokeCard = ({ id, joke, addToSaved, saved }) => {
         <div className="jokeButtons">
           {!saved ?
             <button
-              className="cardButton save button-secondary"
+              className="button-primary button-card"
               name="saveJoke"
               onClick={() => addToSaved(id)}
             >
@@ -18,7 +18,7 @@ const JokeCard = ({ id, joke, addToSaved, saved }) => {
             </button>
             :
             <button
-              className="cardButton save button-secondary disabled"
+              className="button-primary button-card disabled"
               name="saveJoke"
             >
             Saved

@@ -10,7 +10,7 @@ header {
   width: 66%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 570px) {
   header {
     flex-direction: column;
     align-items: center;

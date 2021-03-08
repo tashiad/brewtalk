@@ -3,7 +3,7 @@
   margin: 1%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 570px) {
   .saved-joke {
     width: 90%;
     margin: 1%;
