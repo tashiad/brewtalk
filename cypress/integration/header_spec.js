@@ -7,7 +7,7 @@ describe('Homepage: Header', () => {
       .visit(baseUrl)
       .get('header')
       .get('h1').should('have.text', 'BrewTalk')
-      .get('h2').should('have.text', 'Breweries + dad jokes for the introverted.')
+      .get('h2').should('contain', 'Breweries + dad jokes for the introverted.')
   })
 
   it('Should have a nav bar', () => {
@@ -15,6 +15,7 @@ describe('Homepage: Header', () => {
       .visit(baseUrl)
       .get('nav')
       .get('li').should('contain', 'Home')
-      .get('li').should('contain', 'Favorites')
+      .get('li').should('contain', 'About')
+      .get('li').should('contain', 'Saved Jokes')
   })
 })

@@ -6,16 +6,17 @@ import SavedCard from '../SavedCard/SavedCard'
 const SavedJokes = ({ savedJokes, removeFromSaved }) => {
   const checkForSaved = () => {
     if (savedJokes.length) {
-      return savedJokes.map(fav => {
+      const jokeCards = savedJokes.map(joke => {
         return (
           <SavedCard
-            key={fav.id}
-            id={fav.id}
-            joke={fav.joke}
+            key={joke.id}
+            id={joke.id}
+            joke={joke.joke}
             removeFromSaved={removeFromSaved}
           />
         )
       })
+      return jokeCards
     } else {
       return (
         <p>No saved jokes yet. Go back to add some!</p>

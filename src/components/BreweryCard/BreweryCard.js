@@ -11,17 +11,18 @@ const BreweryCard = ({
   phone,
   website_url,
   updated_at,
+  searchValue,
   selectedBrewery,
   selectBrewery,
-  getBreweries,
-  searchValue
+  getBreweries
 }) => {
 
   const formatPhone = (number => {
     const cleaned = ('' + number).replace(/\D/g, '')
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
     if (match) {
-      return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+      const formattedNumber = '(' + match[1] + ') ' + match[2] + '-' + match[3]
+      return formattedNumber
     }
     return null
   })
@@ -34,7 +35,7 @@ const BreweryCard = ({
   })
 
   return (
-    <article className={selectedBrewery ? 'card-brewery selectedCard' : 'card-brewery'}>
+    <article className={selectedBrewery ? "brewery-card selected-card" : "brewery-card"}>
       <div className="button-brewery">
         {!selectedBrewery ?
           <button
@@ -43,7 +44,7 @@ const BreweryCard = ({
           >
           Select
           </button>
-        :
+          :
           <button
             className="button-primary button-card"
             onClick={() => getBreweries(searchValue)}
@@ -52,7 +53,7 @@ const BreweryCard = ({
           </button>
         }
       </div>
-      <div className="cardContents">
+      <div className="card-contents">
         <h3 className="brewery-name">{name}</h3>
         {!street && <p>{`${city}, ${state}`}</p>}
         {!street && !city && <p>{state}</p>}
@@ -74,11 +75,11 @@ BreweryCard.propTypes = {
   state: PropTypes.string,
   phone: PropTypes.string,
   website_url: PropTypes.string,
+  searchValue: PropTypes.string,
   updated_at: PropTypes.string,
-  selectBrewery: PropTypes.func,
   selectedBrewery: PropTypes.bool,
-  getBreweries: PropTypes.func,
-  searchValue: PropTypes.string
+  selectBrewery: PropTypes.func,
+  getBreweries: PropTypes.func
 }
 
 export default BreweryCard

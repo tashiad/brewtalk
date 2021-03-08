@@ -14,14 +14,10 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
             target="_blank"
             rel="noreferrer"
           >
-            <button className="button-top button-primary" name="directions">
-              Get Directions
-            </button>
+            <button className="button-top button-primary" name="directions">Get Directions</button>
           </a>
-        :
-          <button className="button-top disabled" name="directions">
-            Get Directions
-          </button>
+          :
+          <button className="button-top disabled" name="directions">Get Directions</button>
         }
       </div>
       {!selectedBrewery.length || !dadJoke.saved ?

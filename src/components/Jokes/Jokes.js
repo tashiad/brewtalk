@@ -27,7 +27,7 @@ const Jokes = ({ getJoke, dadJoke, addToSaved, jokeError, jokeLoading }) => {
         <h3>Find a dad joke:</h3>
         <button
           className="button-top button-secondary"
-          name="joke"
+          name="getJoke"
           onClick={() => getJoke()}
         >
         Generate dad joke
