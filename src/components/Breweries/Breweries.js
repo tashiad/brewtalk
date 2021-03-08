@@ -53,14 +53,16 @@ const Breweries = ({
         <p className="number">1</p>
         <Search getBreweries={getBreweries}/>
       </div>
-      <div className="brewCards-container">
-        {brewError && <h2>{brewError}</h2>}
-        {brewLoading && <h3 className="loading">🍺 Loading...</h3>}
-        {searchedBreweries.length > 0 && brewCards}
-        {!searchedBreweries.length && searchValue && !brewError && !brewLoading &&
-          <p>No breweries match your search.</p>
-        }
-      </div>
+      {brewError && <h2>{brewError}</h2>}
+      {brewLoading && <h3 className="loading">🍺 Loading...</h3>}
+      {!searchedBreweries.length && searchValue && !brewError && !brewLoading &&
+        <p>No breweries match your search.</p>
+      }
+      {searchedBreweries.length > 0 &&
+        <div className="brewCards">
+          {brewCards}
+        </div>
+      }
     </section>
   )
 }

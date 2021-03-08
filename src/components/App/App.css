@@ -21,10 +21,18 @@ dark grey #333533
 black ish: #242423
 */
 
+/* TOP COLORS:
+dark gray: #333533
+pumpkin: #D87800
+yellow: #f5cb5c
+eggshell: #e8eddf
+*/
+
 
 main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   margin: 3% 0;
 }
 
@@ -73,8 +81,11 @@ button:hover {
 
 /* SECTION STYLES */
 section {
-  width: 30%;
-  padding: 1%;
+  width: 25%;
+  height: 50%;
+  padding: 2%;
+  border: 5px solid #D87800;
+  border-radius: 3px;
 }
 
 .section-top {
@@ -85,6 +96,7 @@ section {
   font-size: 3rem;
   font-weight: bold;
   margin: 5% 0;
+  color: #D87800;
 }
 
 label {
