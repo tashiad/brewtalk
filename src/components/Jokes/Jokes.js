@@ -39,7 +39,7 @@ const Jokes = ({
           name="joke"
           onClick={() => getJoke()}
         >
-        Generate a random dad joke
+        Generate dad joke
         </button>
       </div>
       {jokeError && <h2>{jokeError}</h2>}

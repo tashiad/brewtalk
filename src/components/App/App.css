@@ -26,28 +26,29 @@ button:hover {
 }
 
 .button-primary {
-  border: 1px solid orange;
-  background: orange;
+  border: 1px solid #D87800;
+  background: #D87800;
   color: white;
 }
 
 .button-primary:hover {
   background: white;
-  color: orange;
+  color: #D87800;
 }
 
 .button-secondary {
-  border: 1px solid black;
+  border: 1px solid #333533;
   background: white;
 }
 
 .button-secondary:hover {
-  border: 1px solid orange;
-  color: orange;
+  border: 1px solid #D87800;
+  color: #D87800;
 }
 
 .disabled {
-  background-color: gray;
+  background-color: #333533;
+  color: white;
 }
 
 .disabled:hover {
@@ -101,9 +102,10 @@ label {
 
 /* CARD STYLES */
 article {
-  border: 2px solid #D2D8D9;
+  border: 3px solid #D2D8D9;
   border-radius: 3px;
   margin: 5% 0;
+  background-color: white;
 }
 
 .cardContents {
@@ -119,6 +121,10 @@ article {
   height: 40px;
   width: 75px;
   float: right;
+}
+
+.selectedCard {
+  background-color: #f5cb5c;
 }
 
 @media screen and (max-width: 425px) {

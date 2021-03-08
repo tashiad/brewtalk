@@ -12,7 +12,7 @@ const JokeCard = ({
 }) => {
 
   return (
-    <article className={selectedJoke ? 'selectedJoke' : null}>
+    <article className={selectedJoke ? 'selectedCard' : null}>
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <div className="jokeButtons">
@@ -48,7 +48,7 @@ const JokeCard = ({
               name="selectJoke"
               onClick={() => toggleSelectJoke(false)}
             >
-            Un-Select
+            Undo
             </button>
           }
         </div>
