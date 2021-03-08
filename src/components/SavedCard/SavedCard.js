@@ -5,18 +5,18 @@ import './SavedCard.css'
 const SavedCard = ({ id, joke, removeFromSaved }) => {
 
   return (
-    <article>
-    <div className="jokeTop">
-      <h4>Dad Joke</h4>
-      <button
-        className="cardButton save button-secondary"
-        name="remove"
-        onClick={() => removeFromSaved(id)}
-      >
-      Remove
-      </button>
-    </div>
-    <p className="cardContents">{joke}</p>
+    <article className="saved-joke">
+      <div className="jokeTop">
+        <h4>Dad Joke</h4>
+        <button
+          className="cardButton save button-secondary"
+          name="remove"
+          onClick={() => removeFromSaved(id)}
+        >
+        Remove
+        </button>
+      </div>
+      <p className="cardContents">{joke}</p>
     </article>
   )
 }

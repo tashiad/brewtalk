@@ -4,7 +4,7 @@ import './Directions.css'
 
 const Directions = ({ selectedBrewery, dadJoke }) => {
   return (
-    <section>
+    <section className="steps-section">
       <div className="section-top">
         <p className="number">3</p>
         <label className="step" htmlFor="directions">Head out:</label>

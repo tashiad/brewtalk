@@ -21,7 +21,7 @@ const Jokes = ({ getJoke, dadJoke, addToSaved, jokeError, jokeLoading }) => {
   }
 
   return (
-    <section>
+    <section className="steps-section">
       <div className="section-top">
         <p className="number">2</p>
         <label className="step" htmlFor="joke">Find a good dad joke:</label>

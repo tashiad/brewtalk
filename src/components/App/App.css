@@ -60,7 +60,7 @@ button:hover {
 }
 
 /* SECTION STYLES */
-section {
+.steps-section {
   width: 25%;
   height: 50%;
   padding: 2%;
@@ -142,7 +142,7 @@ article {
     margin: 10%;
   }
 
-  section {
+  .steps-section {
     width: 90%;
     margin: 5% 0;
     padding: 8%;

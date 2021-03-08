@@ -26,7 +26,9 @@ const SavedJokes = ({ savedJokes, removeFromSaved }) => {
   return (
     <main>
       <h2>Your Saved Dad Jokes</h2>
-      {checkForSaved()}
+      <section className="saved-section">
+        {checkForSaved()}
+      </section>
     </main>
   )
 }
