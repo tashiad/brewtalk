@@ -54,7 +54,7 @@ const Breweries = ({
         <Search getBreweries={getBreweries}/>
       </div>
       {brewError && <h2>{brewError}</h2>}
-      {brewLoading && <h3 className="loading">🍺 Loading...</h3>}
+      {brewLoading && <h3 className="loading">Loading...</h3>}
       {!searchedBreweries.length && searchValue && !brewError && !brewLoading &&
         <p>No breweries match your search.</p>
       }
