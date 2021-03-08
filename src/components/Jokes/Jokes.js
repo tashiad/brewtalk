@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Jokes.css'
 import JokeCard from '../JokeCard/JokeCard'
 
-const Jokes = ({ getJoke, dadJoke, addToFavorites, jokeError, jokeLoading }) => {
+const Jokes = ({ getJoke, dadJoke, addToSaved, jokeError, jokeLoading }) => {
 
   const checkForJoke = () => {
     if (Object.keys(dadJoke).length === 0) {
@@ -13,7 +13,7 @@ const Jokes = ({ getJoke, dadJoke, addToFavorites, jokeError, jokeLoading }) => 
         <JokeCard
           id={dadJoke.id}
           joke={dadJoke.joke}
-          addToFavorites={addToFavorites}
+          addToSaved={addToSaved}
           saved={dadJoke.saved || false}
         />
       )
@@ -43,7 +43,7 @@ const Jokes = ({ getJoke, dadJoke, addToFavorites, jokeError, jokeLoading }) => 
 Jokes.propTypes = {
   getJoke: PropTypes.func,
   dadJoke: PropTypes.object,
-  addToFavorites: PropTypes.func,
+  addToSaved: PropTypes.func,
   jokeError: PropTypes.string,
   jokeLoading: PropTypes.bool
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './FavCard.css'
+import './SavedCard.css'
 
-const FavCard = ({ id, joke, removeFromFavorites }) => {
+const SavedCard = ({ id, joke, removeFromSaved }) => {
 
   return (
     <article>
@@ -11,7 +11,7 @@ const FavCard = ({ id, joke, removeFromFavorites }) => {
       <button
         className="cardButton save button-secondary"
         name="remove"
-        onClick={() => removeFromFavorites(id)}
+        onClick={() => removeFromSaved(id)}
       >
       Remove
       </button>
@@ -21,10 +21,10 @@ const FavCard = ({ id, joke, removeFromFavorites }) => {
   )
 }
 
-FavCard.propTypes = {
+SavedCard.propTypes = {
   id: PropTypes.string,
   joke: PropTypes.string,
-  removeFromFavorites: PropTypes.func
+  removeFromSaved: PropTypes.func
 }
 
-export default FavCard
+export default SavedCard

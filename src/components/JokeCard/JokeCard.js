@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './JokeCard.css'
 
-const JokeCard = ({ id, joke, addToFavorites, saved }) => {
+const JokeCard = ({ id, joke, addToSaved, saved }) => {
   return (
     <article className={saved ? 'selectedCard' : null}>
       <div className="jokeTop">
@@ -12,7 +12,7 @@ const JokeCard = ({ id, joke, addToFavorites, saved }) => {
             <button
               className="cardButton save button-secondary"
               name="saveJoke"
-              onClick={() => addToFavorites(id)}
+              onClick={() => addToSaved(id)}
             >
             Save
             </button>
@@ -34,7 +34,7 @@ const JokeCard = ({ id, joke, addToFavorites, saved }) => {
 JokeCard.propTypes = {
   id: PropTypes.string,
   joke: PropTypes.string,
-  addToFavorites: PropTypes.func,
+  addToSaved: PropTypes.func,
   saved: PropTypes.bool
 }
 

@@ -24,7 +24,7 @@ const Nav = () => {
         </NavLink>
 
         <NavLink
-          to="/favorites"
+          to="/saved"
           style={{ textDecoration: 'none' }}
           activeStyle={{ textDecoration: 'underline' }}
         >
