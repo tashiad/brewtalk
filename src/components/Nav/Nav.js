@@ -14,6 +14,13 @@ const Nav = () => {
           <li>Home</li>
         </NavLink>
         <NavLink
+          to="/about"
+          style={{ textDecoration: 'none' }}
+          activeStyle={{ textDecoration: 'underline' }}
+        >
+          <li>About</li>
+        </NavLink>
+        <NavLink
           to="/favorites"
           style={{ textDecoration: 'none' }}
           activeStyle={{ textDecoration: 'underline' }}
