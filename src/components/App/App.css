@@ -79,16 +79,7 @@ button:hover {
   font-size: 3rem;
   font-weight: bold;
   margin: 5% 0;
-  color: #D87800;
-}
-
-label {
-  display: block;
-}
-
-.step {
-  font-size: 1.2rem;
-  margin: 5% 0;
+  color: #333533;
 }
 
 .button-top {

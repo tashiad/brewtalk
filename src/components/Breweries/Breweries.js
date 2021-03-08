@@ -50,7 +50,8 @@ const Breweries = ({
   return (
     <section className="steps-section">
       <div className="section-top">
-        <p className="number">1</p>
+        <h2 className="number">1</h2>
+        <h3>Select a brewery:</h3>
         <Search getBreweries={getBreweries}/>
       </div>
       {brewError && <h2>{brewError}</h2>}

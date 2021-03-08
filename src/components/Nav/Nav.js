@@ -14,7 +14,7 @@ const Nav = () => {
         >
           <li>Home</li>
         </NavLink>
-
+        
         <NavLink
           to="/about"
           style={{ textDecoration: 'none' }}

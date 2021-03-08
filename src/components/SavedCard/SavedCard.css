@@ -3,6 +3,10 @@
   margin: 1%;
 }
 
+.saved-h3 {
+  margin: 0;
+}
+
 @media screen and (max-width: 570px) {
   .saved-joke {
     width: 90%;
