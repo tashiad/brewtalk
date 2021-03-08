@@ -43,50 +43,52 @@ JavaScript, React, React Router, RESTful APIs, Cypress, Local Storage, HTML, CSS
 
 
 #### Search Breweries
-When the site loads, the you'll see a form with options to get info for your current location or to choose a location from a dropdown list of available cities and states. If you click "Nearest Location," a card will show up and persist on refresh with the latest data so you can stay up to date with the AQI and weather for where you are.
+Search for a brewery directly by name or browse breweries by city. Click "Select" to commit to going to that brewery, which will allow you to get directions to it in Step 3. If you're afraid of commitment (or if you simply change your mind), you can unselect the brewery to go back to the search results, or start a new search.
 <p align = "center">
 <img width="1440" alt="Homepage" src="https://user-images.githubusercontent.com/66852774/110394193-3f5ce880-8029-11eb-8ca0-e24f2f00a535.png">
 </p>
   <details>
     <summary>Under the Hood</summary>
-    The current location card data comes from our <code>fetch</code> to the AirVisual API IP geolocation endpoint. Conditional rendering in Vue.js allowed us to include "Current Location" copy at the top of the card without the delete button. We used <code>unshift</code> to ensure that the current location card always shows up first in the render even as other location cards are added. Once a current location card has been added from the form, it is also added to <code>localStorage</code> and will show up on refresh with data from the latest timestamp.
+    On <code>enter</code>, a <code>fetch</code> is made to the Open Brewery DB API search endpoint. Individual brewery cards are rendered with the data received.
   </details>
 
 #### Generate A Random Dad Joke
-To see what the AQI and weather looks like in other areas, you can choose supported cities and states from the dropdown menus in the form. Once a new location has been added, it's automatically saved so that you can come back to it later on. You can also delete a location if you no longer want to view it. Each card can be individually refreshed to view the latest weather and AQI data.
+Click the "Generate dad joke" button to generate a random dad joke. If you want to find another dad joke, simply click the "Generate dad joke" button again.
 <p align = "center">
 <img width="1440" alt="Generate a dad joke" src="https://user-images.githubusercontent.com/66852774/110394334-82b75700-8029-11eb-9d74-37f9a92d3b65.png">
 </p>
   <details>
     <summary>Under the Hood</summary>
-    On load, the state form dropdown menu is populated with a <code>fetch</code> to AirVisual's "List supported states in a country" endpoint. Once a state has been selected, the cities dropdown is populated with a <code>fetch</code> to AirVisual's "List supported cities in a state" endpoint for the selected state. On submit, another <code>fetch</code> to their "Get specified city data" endpoint interpolating both state and city dropdown values provides the data needed to render a new card for that location. Error handling was used to disable the cities dropdown and submit button until the form has met certain conditions, and to display a server error message to the UI when the calls/minute limit has been reached. Locations are saved to <code>localStorage</code> and can also be deleted.
+    On <code>click</code>, a <code>fetch</code> is made to the Dad Jokes API random joke endpoint. A joke card is rendered with the data received.
   </details>
 
 #### Save A Dad Joke
-To make the app directly relevant to our active/outdoorsy target audience, messages are displayed with specific recommendations for outdoor activity based on a location's given AQI and what [AirNow.gov](https://www.airnow.gov/) suggests is safe.
+ If you like a joke, you can click save to add it to your saved jokes. You can visit the Saved Jokes page to view all your saved dad jokes and remove them if they didn't hit right with your audience.
 <p align = "center">
 <img width="1440" alt="Saved dad jokes" src="https://user-images.githubusercontent.com/66852774/110394421-a7abca00-8029-11eb-9252-fb996220b46c.png">
 </p>
   <details>
     <summary>Under the Hood</summary>
-    Conditional rendering in Vue.js allowed us to render colors, recommendation messages, and more based on where a location's AQI falls within a range of numbers on the scale.
+    Saved jokes are also saved to <code>localStorage</code> so you can come back to them later.
   </details>
 
 #### Get Directions
-Taking the activity recommendations a step further, we added a button to each location card that sends users to the trails page for that location on AllTrails.
+Now that you've selected a brewery to go to and saved a dad joke or two, you're ready to go be social! Hit "Get Directions" to get directions to your selected brewery in Google Maps. Remember, you can always access your saved dad jokes on mobile, in case you want to brush up on them during the Uber ride there.
 <p align = "center">
 <img width="1440" alt="Get Directions" src="https://user-images.githubusercontent.com/66852774/110394481-be522100-8029-11eb-87f9-77b14bb77b52.png">
 </p>
   <details>
     <summary>Under the Hood</summary>
-    By formatting the city and state inputs from the form to match the AllTrails URL format, we were able to interpolate the link for each individual card so that the user lands on that particular location page.
+    The brewery name is interpolated into the Google Maps API endpoint so that user is taken directly to that location page in Google Maps.
   </details>
 
 ### Accessibility
 This app was built with all users in mind. I used Lighthouse and [WAVE](https://wave.webaim.org/) to work towards including as broad of an audience as I could. Of course, as I am committed to including all users, I am ready to make future edits to address any areas that I may have missed.
 
 ### Future Improvements
--
+- Allow users to save breweries
+- Bring in the Open Brewery DB autocomplete search endpoint
+- Allow users to search dad jokes so they can have a conversation starter on a specific topic when they visit a brewery
 
 ---
 
