@@ -84,6 +84,7 @@ class App extends Component {
     const filteredSaved = savedJokes.filter(joke => joke.id !== jokeToRemove.id)
 
     jokeToRemove.saved = false
+    
     this.setState({ savedJokes: filteredSaved })
     this.updateLocalStorage(filteredSaved)
   }

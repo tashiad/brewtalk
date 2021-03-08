@@ -11,10 +11,10 @@ const BreweryCard = ({
   phone,
   website_url,
   updated_at,
+  searchValue,
   selectedBrewery,
   selectBrewery,
-  getBreweries,
-  searchValue
+  getBreweries
 }) => {
 
   const formatPhone = (number => {
@@ -44,7 +44,7 @@ const BreweryCard = ({
           >
           Select
           </button>
-        :
+          :
           <button
             className="button-primary button-card"
             onClick={() => getBreweries(searchValue)}
@@ -75,11 +75,11 @@ BreweryCard.propTypes = {
   state: PropTypes.string,
   phone: PropTypes.string,
   website_url: PropTypes.string,
+  searchValue: PropTypes.string,
   updated_at: PropTypes.string,
-  selectBrewery: PropTypes.func,
   selectedBrewery: PropTypes.bool,
-  getBreweries: PropTypes.func,
-  searchValue: PropTypes.string
+  selectBrewery: PropTypes.func,
+  getBreweries: PropTypes.func
 }
 
 export default BreweryCard

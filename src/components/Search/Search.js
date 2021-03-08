@@ -24,25 +24,25 @@ class Search extends Component {
   render() {
     return (
       <>
-      <form onSubmit={this.handleSubmit}>
-        <div className="searchBar">
-          <img
-            className="searchIcon"
-            src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"
-            alt="Search icon"
-          />
-          <label htmlFor="search">Select a brewery:</label>
-          <input
-            className="searchBox"
-            id='search'
-            type='search'
-            name='search'
-            placeholder='Search by name or city'
-            value={this.state.search}
-            onChange={this.handleChange}
-          />
-        </div>
-      </form>
+        <form onSubmit={this.handleSubmit}>
+          <div className="searchBar">
+            <img
+              className="searchIcon"
+              src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"
+              alt="Search icon"
+            />
+            <label htmlFor="search">Select a brewery:</label>
+            <input
+              className="searchBox"
+              id='search'
+              type='search'
+              name='search'
+              placeholder='Search by name or city'
+              value={this.state.search}
+              onChange={this.handleChange}
+            />
+          </div>
+        </form>
       </>
     )
   }
