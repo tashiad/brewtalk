@@ -49,8 +49,7 @@ class App extends Component {
   }
 
   selectBrewery = id => {
-    const { searchedBreweries } = this.state
-    const foundBrewery = searchedBreweries.find(brewery => brewery.id === id)
+    const foundBrewery = this.state.searchedBreweries.find(brewery => brewery.id === id)
 
     foundBrewery.selected = true
     this.setState({ selectedBrewery: [foundBrewery] })
@@ -63,13 +62,6 @@ class App extends Component {
       .then(joke => this.setState({ dadJoke: joke }))
       .catch(error => this.setState({ jokeError: 'Unable to find a dad joke. Please refresh the page or try again later.' }))
       .finally(() => this.setState({ jokeLoading: false }))
-  }
-
-  toggleSelectJoke = (bool) => {
-    const newJoke = this.state.dadJoke
-
-    newJoke.selected = bool
-    this.setState({ dadJoke: newJoke })
   }
 
   addToFavorites = (id) => {
@@ -143,7 +135,6 @@ class App extends Component {
                 jokeError={jokeError}
                 jokeLoading={jokeLoading}
                 getJoke={this.getJoke}
-                toggleSelectJoke={this.toggleSelectJoke}
                 addToFavorites={this.addToFavorites}
               />
               <Directions

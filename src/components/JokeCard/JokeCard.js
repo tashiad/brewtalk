@@ -2,21 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './JokeCard.css'
 
-const JokeCard = ({
-  id,
-  joke,
-  selectedJoke,
-  toggleSelectJoke,
-  addToFavorites,
-  saved
-}) => {
-
+const JokeCard = ({ id, joke, addToFavorites, saved }) => {
   return (
-    <article className={selectedJoke ? 'selectedCard' : null}>
+    <article className={saved ? 'selectedCard' : null}>
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <div className="jokeButtons">
-          {!saved &&
+          {!saved ?
             <button
               className="cardButton save button-secondary"
               name="saveJoke"
@@ -24,31 +16,12 @@ const JokeCard = ({
             >
             Save
             </button>
-          }
-          {saved &&
+            :
             <button
               className="cardButton save button-secondary disabled"
               name="saveJoke"
             >
             Saved
-            </button>
-          }
-          {!selectedJoke &&
-            <button
-              className="cardButton select button-primary"
-              name="selectJoke"
-              onClick={() => toggleSelectJoke(true)}
-            >
-            Select
-            </button>
-          }
-          {selectedJoke &&
-            <button
-              className="cardButton select button-primary"
-              name="selectJoke"
-              onClick={() => toggleSelectJoke(false)}
-            >
-            Undo
             </button>
           }
         </div>
@@ -61,9 +34,8 @@ const JokeCard = ({
 JokeCard.propTypes = {
   id: PropTypes.string,
   joke: PropTypes.string,
-  selectedJoke: PropTypes.bool,
-  toggleSelectJoke: PropTypes.func,
-  addToFavorites: PropTypes.func
+  addToFavorites: PropTypes.func,
+  saved: PropTypes.bool
 }
 
 export default JokeCard

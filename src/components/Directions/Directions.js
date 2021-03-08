@@ -31,10 +31,10 @@ const Directions = ({ selectedBrewery, dadJoke }) => {
           </a>
         }
       </div>
-      {!selectedBrewery.length || !dadJoke.selected ?
+      {!selectedBrewery.length || !dadJoke.saved ?
         <div className="placeholder">👍</div> : null
       }
-      {selectedBrewery.length > 0 && dadJoke.selected &&
+      {selectedBrewery.length > 0 && dadJoke.saved &&
         <p>Cheers! You're officially ready to be social.</p>
       }
     </section>
