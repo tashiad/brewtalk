@@ -24,6 +24,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.retrieveLocalStorage()
+  }
+
   getBreweries = input => {
     this.resetBrewState()
     this.setState({ searchValue: input, brewLoading: true })
@@ -75,7 +79,9 @@ class App extends Component {
       const newJoke = this.state.dadJoke
 
       newJoke.saved = true
-      this.setState({ favorites: [...this.state.favorites, this.state.dadJoke] })
+
+      this.setState({ favorites: [...this.state.favorites, newJoke] })
+      this.updateLocalStorage([...this.state.favorites, newJoke])
     }
   }
 
@@ -86,6 +92,20 @@ class App extends Component {
 
     jokeToRemove.saved = false
     this.setState({ favorites: filteredFavs })
+    this.updateLocalStorage(filteredFavs)
+  }
+
+  updateLocalStorage = (favorites) => {
+    const favData = JSON.stringify(favorites)
+    localStorage.setItem('savedJokes', favData)
+  }
+
+  retrieveLocalStorage = () => {
+    const saved = JSON.parse(localStorage.getItem('savedJokes'))
+
+    if (saved && saved.length > 0) {
+      this.setState({ favorites: saved })
+    }
   }
 
   render() {
