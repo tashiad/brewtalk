@@ -43,7 +43,7 @@ const Jokes = ({
         </button>
       </div>
       {jokeError && <h2>{jokeError}</h2>}
-      {jokeLoading && <h2>Loading...</h2>}
+      {jokeLoading && <h3 className="loading">🧔 Loading...</h3>}
       {checkForJoke()}
     </section>
   )

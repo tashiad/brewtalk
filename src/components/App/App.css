@@ -103,6 +103,10 @@ label {
   width: 100%;
 }
 
+.loading {
+  color: #C04800;
+}
+
 /* CARD STYLES */
 article {
   border: 2px solid #D2D8D9;
