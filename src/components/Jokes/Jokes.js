@@ -14,7 +14,7 @@ const Jokes = ({
 
   const checkForJoke = () => {
     if (Object.keys(dadJoke).length === 0) {
-      return null
+      return <div className="placeholder">🧔</div>
     } else {
       return (
         <JokeCard
@@ -39,11 +39,11 @@ const Jokes = ({
           name="joke"
           onClick={() => getJoke()}
         >
-        Generate a random dad joke
+        Generate dad joke
         </button>
       </div>
       {jokeError && <h2>{jokeError}</h2>}
-      {jokeLoading && <h2>Loading...</h2>}
+      {jokeLoading && <h3 className="loading">🧔 Loading...</h3>}
       {checkForJoke()}
     </section>
   )

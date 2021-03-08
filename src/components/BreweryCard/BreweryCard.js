@@ -49,7 +49,7 @@ const BreweryCard = ({
           className="cardButton select brewButton button-primary"
           onClick={() => getBreweries(searchValue)}
         >
-        Un-Select
+        Undo
         </button>
       }
       <div className="cardContents">

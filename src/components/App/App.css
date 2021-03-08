@@ -1,7 +1,19 @@
+/* COLORS:
+dark gray: #333533
+pumpkin: #D87800
+yellow: #f5cb5c
+eggshell: #e8eddf
+*/
+
 main {
   display: flex;
-  justify-content: space-between;
-  margin: 3% 0;
+  justify-content: space-evenly;
+  margin: 0 3% 5% 3%;
+}
+
+h1 {
+  margin-top: 0;
+  color: #333533;
 }
 
 /* MAIN BUTTON STYLES */
@@ -14,28 +26,29 @@ button:hover {
 }
 
 .button-primary {
-  border: 1px solid orange;
-  background: orange;
+  border: 1px solid #D87800;
+  background: #D87800;
   color: white;
 }
 
 .button-primary:hover {
   background: white;
-  color: orange;
+  color: #D87800;
 }
 
 .button-secondary {
-  border: 1px solid black;
+  border: 1px solid #333533;
   background: white;
 }
 
 .button-secondary:hover {
-  border: 1px solid orange;
-  color: orange;
+  border: 1px solid #D87800;
+  color: #D87800;
 }
 
 .disabled {
-  background-color: gray;
+  background-color: #333533;
+  color: white;
 }
 
 .disabled:hover {
@@ -44,8 +57,11 @@ button:hover {
 
 /* SECTION STYLES */
 section {
-  width: 30%;
-  padding: 1%;
+  width: 25%;
+  height: 50%;
+  padding: 2%;
+  border: 5px solid #D87800;
+  border-radius: 3px;
 }
 
 .section-top {
@@ -56,6 +72,7 @@ section {
   font-size: 3rem;
   font-weight: bold;
   margin: 5% 0;
+  color: #D87800;
 }
 
 label {
@@ -74,11 +91,21 @@ label {
   width: 100%;
 }
 
+.loading {
+  color: #C04800;
+}
+
+.placeholder {
+  text-align: center;
+  font-size: 5rem;
+}
+
 /* CARD STYLES */
 article {
-  border: 2px solid #D2D8D9;
+  border: 3px solid #D2D8D9;
   border-radius: 3px;
   margin: 5% 0;
+  background-color: white;
 }
 
 .cardContents {
@@ -94,4 +121,27 @@ article {
   height: 40px;
   width: 75px;
   float: right;
+}
+
+.selectedCard {
+  background-color: #f5cb5c;
+}
+
+@media screen and (max-width: 425px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+  }
+
+  section {
+    width: 90%;
+    margin: 5% 0;
+    padding: 8%;
+  }
+
+  .section-top {
+    text-align: center;
+  }
 }
