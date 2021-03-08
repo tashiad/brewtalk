@@ -48,7 +48,7 @@ const Breweries = ({
   })
 
   return (
-    <section>
+    <section className="steps-section">
       <div className="section-top">
         <p className="number">1</p>
         <Search getBreweries={getBreweries}/>

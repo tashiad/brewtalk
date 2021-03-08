@@ -4,31 +4,24 @@ import './Directions.css'
 
 const Directions = ({ selectedBrewery, dadJoke }) => {
   return (
-    <section>
+    <section className="steps-section">
       <div className="section-top">
         <p className="number">3</p>
         <label className="step" htmlFor="directions">Head out:</label>
-        {!selectedBrewery.length &&
-          <button
-            className="button-top disabled"
-            name="directions"
-          >
-          Get Directions
-          </button>
-        }
-        {selectedBrewery.length > 0 &&
+        {selectedBrewery.length > 0 ?
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${selectedBrewery[0].name}`}
             target="_blank"
             rel="noreferrer"
           >
-            <button
-              className="button-top button-primary"
-              name="directions"
-            >
-            Get Directions
+            <button className="button-top button-primary" name="directions">
+              Get Directions
             </button>
           </a>
+        :
+          <button className="button-top disabled" name="directions">
+            Get Directions
+          </button>
         }
       </div>
       {!selectedBrewery.length || !dadJoke.saved ?

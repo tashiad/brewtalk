@@ -52,15 +52,18 @@ button:hover {
 
 .disabled {
   background-color: #333533;
+  border: none;
   color: white;
 }
 
 .disabled:hover {
   cursor: not-allowed;
+  background-color: #333533;
+  color: white;
 }
 
 /* SECTION STYLES */
-section {
+.steps-section {
   width: 25%;
   height: 50%;
   padding: 2%;
@@ -116,22 +119,18 @@ article {
   padding: 0 5%;
 }
 
-.cardButton {
+.button-card {
   font-weight: bold;
   font-size: 1em;
-}
-
-.select {
   height: 40px;
   width: 75px;
-  float: right;
 }
 
 .selectedCard {
   background-color: #f5cb5c;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 570px) {
   main {
     display: flex;
     flex-direction: column;
@@ -142,7 +141,7 @@ article {
     margin: 10%;
   }
 
-  section {
+  .steps-section {
     width: 90%;
     margin: 5% 0;
     padding: 8%;

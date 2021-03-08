@@ -1,20 +1,21 @@
-h3 {
-  word-wrap: break-word;
+.brewery-name {
+  margin-top: 5%;
 }
 
-.typeTag {
-  font-size: .8em;
-  padding: 2%;
-  border: 1px solid black;
-  border-radius: 3px;
-}
-
-.brewButton {
+.button-brewery {
   margin: 5%;
+  float: right;
 }
 
 .timestamp {
   color: #2c3e50;
   font-size: .8em;
   font-style: italic;
+}
+
+@media screen and (max-width: 800px) {
+  .card-brewery {
+    display: flex;
+    flex-direction: column;
+  }
 }

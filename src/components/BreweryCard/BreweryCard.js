@@ -5,7 +5,6 @@ import './BreweryCard.css'
 const BreweryCard = ({
   id,
   name,
-  brewery_type,
   street,
   city,
   state,
@@ -35,26 +34,26 @@ const BreweryCard = ({
   })
 
   return (
-    <article className={selectedBrewery ? 'selectedCard' : null}>
-      { !selectedBrewery &&
-        <button
-          className="cardButton select brewButton button-primary"
-          onClick={() => selectBrewery(id)}
-        >
-        Select
-        </button>
-      }
-      { selectedBrewery &&
-        <button
-          className="cardButton select brewButton button-primary"
-          onClick={() => getBreweries(searchValue)}
-        >
-        Undo
-        </button>
-      }
+    <article className={selectedBrewery ? 'card-brewery selectedCard' : 'card-brewery'}>
+      <div className="button-brewery">
+        {!selectedBrewery ?
+          <button
+            className="button-primary button-card"
+            onClick={() => selectBrewery(id)}
+          >
+          Select
+          </button>
+        :
+          <button
+            className="button-primary button-card"
+            onClick={() => getBreweries(searchValue)}
+          >
+          Undo
+          </button>
+        }
+      </div>
       <div className="cardContents">
-        <h3>{name}</h3>
-        {brewery_type && <p><span className="typeTag">{brewery_type}</span></p>}
+        <h3 className="brewery-name">{name}</h3>
         {!street && <p>{`${city}, ${state}`}</p>}
         {!street && !city && <p>{state}</p>}
         {street && city && state && <p>{`${street}, ${city}, ${state}`}</p>}

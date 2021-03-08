@@ -25,7 +25,13 @@ nav li:hover {
   background-color: #f5cb5c;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
+  nav {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 570px) {
   nav {
     width: 100%;
     margin-top: 5%;

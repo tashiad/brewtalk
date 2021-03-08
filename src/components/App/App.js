@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 import Breweries from '../Breweries/Breweries'
 import Jokes from '../Jokes/Jokes'
 import Directions from '../Directions/Directions'
-import Favorites from '../Favorites/Favorites'
+import SavedJokes from '../SavedJokes/SavedJokes'
 import About from '../About/About'
 import { fetchBreweries, fetchJoke } from '../../apiCalls'
 
@@ -17,7 +17,7 @@ class App extends Component {
       selectedBrewery: [],
       searchValue: '',
       dadJoke: {},
-      favorites: [],
+      savedJokes: [],
       brewError: '',
       jokeError: '',
       brewLoading: false,
@@ -65,39 +65,39 @@ class App extends Component {
       .finally(() => this.setState({ jokeLoading: false }))
   }
 
-  addToFavorites = (id) => {
-    const foundFav = this.state.favorites.find(fav => fav.id === id)
+  addToSaved = (id) => {
+    const foundJoke = this.state.savedJokes.find(joke => joke.id === id)
 
-    if (!foundFav) {
+    if (!foundJoke) {
       const newJoke = this.state.dadJoke
 
       newJoke.saved = true
 
-      this.setState({ favorites: [...this.state.favorites, newJoke] })
-      this.updateLocalStorage([...this.state.favorites, newJoke])
+      this.setState({ savedJokes: [...this.state.savedJokes, newJoke] })
+      this.updateLocalStorage([...this.state.savedJokes, newJoke])
     }
   }
 
-  removeFromFavorites = (id) => {
-    const { favorites } = this.state
-    const jokeToRemove = favorites.find(fav => fav.id === id)
-    const filteredFavs = favorites.filter(joke => joke.id !== jokeToRemove.id)
+  removeFromSaved = (id) => {
+    const { savedJokes } = this.state
+    const jokeToRemove = savedJokes.find(joke => joke.id === id)
+    const filteredSaved = savedJokes.filter(joke => joke.id !== jokeToRemove.id)
 
     jokeToRemove.saved = false
-    this.setState({ favorites: filteredFavs })
-    this.updateLocalStorage(filteredFavs)
+    this.setState({ savedJokes: filteredSaved })
+    this.updateLocalStorage(filteredSaved)
   }
 
-  updateLocalStorage = (favorites) => {
-    const favData = JSON.stringify(favorites)
-    localStorage.setItem('savedJokes', favData)
+  updateLocalStorage = (saved) => {
+    const savedData = JSON.stringify(saved)
+    localStorage.setItem('savedJokes', savedData)
   }
 
   retrieveLocalStorage = () => {
     const saved = JSON.parse(localStorage.getItem('savedJokes'))
 
     if (saved && saved.length > 0) {
-      this.setState({ favorites: saved })
+      this.setState({ savedJokes: saved })
     }
   }
 
@@ -107,7 +107,7 @@ class App extends Component {
       searchValue,
       dadJoke,
       selectedBrewery,
-      favorites,
+      savedJokes,
       brewError,
       jokeError,
       brewLoading,
@@ -136,7 +136,7 @@ class App extends Component {
                 jokeError={jokeError}
                 jokeLoading={jokeLoading}
                 getJoke={this.getJoke}
-                addToFavorites={this.addToFavorites}
+                addToSaved={this.addToSaved}
               />
               <Directions
                 selectedBrewery={selectedBrewery}
@@ -149,11 +149,11 @@ class App extends Component {
         <Route path="/about" render={() => <About/>} />
 
         <Route
-          path="/favorites"
+          path="/saved"
           render={() =>
-            <Favorites
-              favorites={favorites}
-              removeFromFavorites={this.removeFromFavorites}
+            <SavedJokes
+              savedJokes={savedJokes}
+              removeFromSaved={this.removeFromSaved}
             />
           }
         />
