@@ -1,4 +1,4 @@
-/* TOP COLORS:
+/* COLORS:
 dark gray: #333533
 pumpkin: #D87800
 yellow: #f5cb5c
@@ -8,7 +8,6 @@ eggshell: #e8eddf
 main {
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
   margin: 0 3% 5% 3%;
 }
 
@@ -120,4 +119,23 @@ article {
   height: 40px;
   width: 75px;
   float: right;
+}
+
+@media screen and (max-width: 425px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+  }
+
+  section {
+    width: 90%;
+    margin: 5% 0;
+    padding: 8%;
+  }
+
+  .section-top {
+    text-align: center;
+  }
 }
