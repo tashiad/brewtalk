@@ -22,6 +22,7 @@ With BrewTalk, craft beer-lovers can search for a brewery to visit IRL by name o
 
 ## Technologies
 JavaScript, React, React Router, RESTful APIs, Cypress, Travis CI, Local Storage, HTML, CSS
+[![Build Status](https://travis-ci.org/tashiad/brewtalk.svg?branch=main)](https://travis-ci.org/tashiad/brewtalk)
 
 ---
 
