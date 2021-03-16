@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import './SavedCard.css'
 
 const SavedCard = ({ id, joke, removeFromSaved }) => {
-
   return (
     <article className="saved-joke">
       <div className="jokeTop">
@@ -16,7 +15,7 @@ const SavedCard = ({ id, joke, removeFromSaved }) => {
         Remove
         </button>
       </div>
-      <p className="cardContents">{joke}</p>
+      <p className="card-contents">{joke}</p>
     </article>
   )
 }

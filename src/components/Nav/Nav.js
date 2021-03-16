@@ -9,24 +9,24 @@ const Nav = () => {
 
         <NavLink
           exact to="/"
-          style={{ textDecoration: 'none' }}
-          activeStyle={{ textDecoration: 'underline' }}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ textDecoration: "underline" }}
         >
           <li>Home</li>
         </NavLink>
-        
+
         <NavLink
           to="/about"
-          style={{ textDecoration: 'none' }}
-          activeStyle={{ textDecoration: 'underline' }}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ textDecoration: "underline" }}
         >
           <li>About</li>
         </NavLink>
 
         <NavLink
           to="/saved"
-          style={{ textDecoration: 'none' }}
-          activeStyle={{ textDecoration: 'underline' }}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ textDecoration: "underline" }}
         >
           <li>Saved Jokes</li>
         </NavLink>

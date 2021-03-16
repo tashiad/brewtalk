@@ -4,7 +4,7 @@ import './JokeCard.css'
 
 const JokeCard = ({ id, joke, addToSaved, saved }) => {
   return (
-    <article className={saved ? 'selectedCard' : null}>
+    <article className={saved ? "selected-card" : null}>
       <div className="jokeTop">
         <h4>Dad Joke</h4>
         <div>
@@ -26,7 +26,7 @@ const JokeCard = ({ id, joke, addToSaved, saved }) => {
           }
         </div>
       </div>
-      <p className="cardContents">{joke}</p>
+      <p className="card-contents">{joke}</p>
     </article>
   )
 }
