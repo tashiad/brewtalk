@@ -26,11 +26,6 @@ class Search extends Component {
       <>
         <form onSubmit={this.handleSubmit}>
           <div className="search-bar">
-            <img
-              className="search-icon"
-              src="https://img.icons8.com/fluent-systems-filled/24/000000/search.png"
-              alt="Search icon"
-            />
             <label htmlFor="search">Select a brewery:</label>
             <input
               className="search-box"
@@ -41,8 +36,15 @@ class Search extends Component {
               value={this.state.search}
               onChange={this.handleChange}
             />
+
+          <button className="button-primary button-search" onSubmit={this.handleSubmit}>
+            <img
+              className="search-icon"
+              src="https://img.icons8.com/fluent-systems-filled/24/FFFFFF/search.png"
+              alt="Search icon"
+            />
+          </button>
           </div>
-          <button className="button-secondary" onSubmit={this.handleSubmit}>Submit</button>
         </form>
       </>
     )
