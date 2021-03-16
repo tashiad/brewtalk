@@ -42,6 +42,7 @@ class Search extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <button className="button-secondary" onSubmit={this.handleSubmit}>Submit</button>
         </form>
       </>
     )
