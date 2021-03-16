@@ -12,3 +12,7 @@ before_script:
   - npm start -- --silent &
 script:
   - $(npm bin)/cypress run
+deploy:
+  provider: vercel
+  app: brewtalk
+  skip_cleanup: true
